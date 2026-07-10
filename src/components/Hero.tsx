@@ -6,7 +6,7 @@ import { asset } from "@/lib/asset";
 export default function Hero() {
   return (
     <section
-      id="top"
+      id="portfolio"
       className="relative isolate overflow-hidden pt-28 sm:pt-32"
     >
       <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[640px] bg-[radial-gradient(ellipse_60%_40%_at_50%_-10%,rgba(167,139,250,0.18),transparent_60%)]" />

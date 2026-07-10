@@ -17,8 +17,8 @@ export const publications: Publication[] = [
     images: ["openfrontier-1.png"],
     links: [
       {
-        label: "arXiv 2603.05377",
-        href: "https://arxiv.org/abs/2603.05377",
+        label: "Project Website",
+        href: "https://boysun045.github.io/OpenFrontier-Project/",
       },
     ],
   },
