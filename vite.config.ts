@@ -13,6 +13,12 @@ export default defineConfig(() => {
       },
     },
     build: {
+      rollupOptions: {
+        input: {
+          main: path.resolve(__dirname, "index.html"),
+          card: path.resolve(__dirname, "card/index.html"),
+        },
+      },
       target: "es2020",
       sourcemap: false,
     },
