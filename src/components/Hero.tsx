@@ -22,7 +22,7 @@ export default function Hero() {
               <span className="absolute inset-0 animate-pulseDot rounded-full bg-accent" />
               <span className="absolute inset-0 rounded-full bg-accent/40 blur" />
             </span>
-            Currently in Tokyo · GVLab, U-Tokyo
+            Currently at the Computer Vision and Geometry Lab, ETH Zürich
           </div>
 
           <h1 className="mt-5 text-4xl font-bold leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-6xl">

@@ -25,18 +25,19 @@ export const publications: Publication[] = [
 ];
 
 export const thesis: ThesisCard = {
-  title: "Floor-Based Behavioral Odometry for Anticipatory HRI",
-  subtitle: "Master Thesis (in progress)",
+  title: "Common Ground: Tracking Human-Robot Interaction through Coarse Force-Plate Sensing",
+  subtitle: "Master Thesis",
   org: "GVLab — University of Tokyo",
-  period: "Feb 2026 – Present",
+  period: "August 2026",
   summary:
-    "A distributed, privacy-preserving intelligent floor capable of global behavioral odometry and tracking of human–robot interaction across wide spaces, extracting rich spatiotemporal structure from a minimal modality: ground reaction forces and center-of-pressure dynamics from an under-determined source of data.",
+  "A real-time, privacy-preserving smart-floor sensing framework for tracking humans, robots, and objects and recovering physical interaction structure from coarse ground-reaction-force and center-of-pressure measurements, without cameras or wearables.",
   objectives: [
-    "Robust, low-latency streaming models (TCNs, state-space models) for force-plate signals.",
-    "Retrieval of individual pressure influence from an under-determined low-resolution sensor array using physical priors.",
-    "Multi-plate fusion to estimate human and robot global position, zone transitions, and multi-agent coexistence without visual tracking.",
-    "Incremental learning of interaction patterns for proactive, anticipatory robot behavior.",
-    "Privacy-by-design: no cameras, no wearables, only biomechanical ground interaction.",
+    "Real-time tracking of multiple agents from coarse force-plate measurements using force, spatial, and temporal associations.",
+    "Resolve under-determined multi-contact measurements using physics-constrained convex optimization and physical priors.",
+    "Estimate agent force contributions and contact locations while preserving measured force and first-moment constraints.",
+    "Fuse measurements across multiple force plates to recover global agent positions and interaction dynamics, including robot pose correction, touch contacts, and object carrying.",
+    "Provide a gait- and form-factor-agnostic sensing framework for humans, robots, and objects without cameras or wearable sensors.",
+    "Characterize sensing accuracy and evaluate real-time multi-agent tracking performance under human–robot and object-interaction scenarios."
   ],
   tags: ["HRI", "Force plates", "ROS 2", "Streaming ML", "Privacy-preserving"],
   image: "thesis.gif",
