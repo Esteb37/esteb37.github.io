@@ -83,7 +83,7 @@ export default function ProjectModal({
     };
   }, [isOpen, imgIndex, onClose, onPrev, onNext, closeImage, prevImage, nextImage]);
 
-  const primaryVideo = project?.videos?.[0];
+  const videos = project?.videos ?? [];
 
   return (
     <AnimatePresence>
@@ -259,18 +259,26 @@ export default function ProjectModal({
                   ))}
                 </div>
 
-                {primaryVideo ? (
+                {videos.length > 0 ? (
                   <div className="mt-8">
                     <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-accent">
-                      // watch
+                      // videos
                     </div>
-                    <div className="mt-3">
-                      <VideoEmbedView video={primaryVideo} />
-                      {primaryVideo.title ? (
-                        <p className="mt-2 text-xs text-ink-subtle">
-                          {primaryVideo.title}
-                        </p>
-                      ) : null}
+                    <div
+                      className={`mt-3 grid gap-4 ${
+                        videos.length > 1 ? "sm:grid-cols-2" : ""
+                      }`}
+                    >
+                      {videos.map((video) => (
+                        <div key={`${video.kind}-${video.src}`}>
+                          <VideoEmbedView video={video} />
+                          {video.title ? (
+                            <p className="mt-2 text-xs text-ink-subtle">
+                              {video.title}
+                            </p>
+                          ) : null}
+                        </div>
+                      ))}
                     </div>
                   </div>
                 ) : null}

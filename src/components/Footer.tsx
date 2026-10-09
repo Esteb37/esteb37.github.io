@@ -6,7 +6,7 @@ export default function Footer() {
           © {new Date().getFullYear()} Esteban Padilla Cerdio · Built with React,
           Vite & Tailwind.
         </div>
-        <div className="font-mono">Zürich · Tokyo · Mexico</div>
+        <div className="font-mono">Zürich, Switzerland · Open to relocate</div>
       </div>
     </footer>
   );

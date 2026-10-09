@@ -1,5 +1,12 @@
 import { motion } from "framer-motion";
-import { ArrowDownRight, Github, Linkedin, Mail, MapPin } from "lucide-react";
+import {
+  ArrowDownRight,
+  FileText,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+} from "lucide-react";
 import { profile } from "@/content/profile";
 import { asset } from "@/lib/asset";
 
@@ -65,7 +72,7 @@ export default function Hero() {
 
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href="#projects"
+              href="#research"
               className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-semibold text-bg shadow-[0_8px_24px_-12px_rgba(167,139,250,0.7)] transition-transform hover:scale-[1.03]"
             >
               See my work <ArrowDownRight size={16} />
@@ -92,6 +99,16 @@ export default function Hero() {
             >
               <Mail size={16} /> Email
             </a>
+            {profile.links.cv ? (
+              <a
+                href={asset(profile.links.cv)}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm text-ink-muted transition-colors hover:border-accent/60 hover:text-ink"
+              >
+                <FileText size={16} /> CV
+              </a>
+            ) : null}
           </div>
         </motion.div>
 
@@ -106,6 +123,8 @@ export default function Hero() {
               src={asset(profile.portrait)}
               alt={`${profile.name} with a robot`}
               loading="eager"
+              fetchPriority="high"
+              decoding="async"
               className="aspect-[4/5] w-full object-cover"
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-bg via-transparent to-transparent" />
@@ -122,13 +141,13 @@ export default function Hero() {
 
       <div className="container-page pb-6">
         <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-border pt-6 font-mono text-[11px] uppercase tracking-[0.2em] text-ink-subtle">
-          <span>Robot Learning</span>
+          <span>Autonomous Navigation</span>
           <span className="h-1 w-1 rounded-full bg-ink-subtle" />
           <span>Semantic Navigation</span>
           <span className="h-1 w-1 rounded-full bg-ink-subtle" />
-          <span>Dexterous Manipulation</span>
+          <span>Localization & Sensor Fusion</span>
           <span className="h-1 w-1 rounded-full bg-ink-subtle" />
-          <span>Imitation & RL</span>
+          <span>Real-Time Robotics</span>
           <span className="h-1 w-1 rounded-full bg-ink-subtle" />
           <span>VLMs · MPC · SLAM</span>
         </div>

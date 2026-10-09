@@ -32,6 +32,7 @@ export type ExperienceItem = {
   location: string;
   period: string;
   bullets: string[];
+  links?: Link[];
   tags?: string[];
   current?: boolean;
   logo?: string;
@@ -44,6 +45,7 @@ export type Publication = {
   year: number;
   abstract: string;
   highlights: string[];
+  tags: string[];
   images: string[];
   links: Link[];
 };
@@ -57,6 +59,7 @@ export type ThesisCard = {
   objectives: string[];
   tags: string[];
   image?: string;
+  pdf?: string;
 };
 
 export type VideoEmbed = {
@@ -73,6 +76,7 @@ export type ProjectCategory =
 
 export type Project = {
   id: string;
+  sortDate: string;
   title: string;
   subtitle: string;
   category: ProjectCategory;
@@ -93,7 +97,7 @@ export type EducationItem = {
   degree: string;
   period: string;
   location: string;
-  note?: string;
+  highlights?: string[];
 };
 
 export type SkillGroup = {

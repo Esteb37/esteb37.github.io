@@ -25,7 +25,7 @@ export default function Research() {
       id="research"
       label="// research"
       title="Publications & thesis."
-      description="Selected research outputs: a peer-reviewed paper on language-conditioned navigation and an ongoing Master Thesis on floor-based behavioral odometry in Tokyo."
+      description="Selected research outputs: a first-author RSS paper on zero-shot semantic navigation and a completed Master Thesis on force-plate-based multi-agent localization."
     >
       <div className="grid gap-6 lg:grid-cols-2">
         <motion.article
@@ -69,7 +69,6 @@ export default function Research() {
               <span className="chip chip-accent">
                 {paper.venue} {paper.year}
               </span>
-              <span className="chip">Equal contribution</span>
             </div>
             <h3 className="mt-3 text-xl font-semibold text-ink">
               {paper.title}
@@ -86,7 +85,7 @@ export default function Research() {
                   onClick={(e) => e.stopPropagation()}
                   className="inline-flex items-center gap-1.5 rounded-full bg-accent px-3.5 py-1.5 text-xs font-semibold text-bg shadow-sm transition-transform hover:scale-[1.03] hover:bg-accent-soft"
                 >
-                  Read paper · {link.label} <ExternalLink size={12} />
+                  {link.label} <ExternalLink size={12} />
                 </a>
               ))}
             </div>
@@ -103,6 +102,14 @@ export default function Research() {
                   </li>
                 ))}
               </ul>
+            </div>
+
+            <div className="mt-5 flex flex-wrap gap-2">
+              {paper.tags.map((tag) => (
+                <span key={tag} className="chip">
+                  {tag}
+                </span>
+              ))}
             </div>
 
             <div className="mt-4 inline-flex items-center gap-1 font-mono text-[11px] uppercase tracking-wider text-accent md:hidden">
@@ -155,20 +162,28 @@ export default function Research() {
             </h3>
             <p className="mt-1 text-sm text-ink-muted">{thesis.org}</p>
 
-            <div className="mt-4 flex flex-wrap gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-gold/50 bg-gold/15 px-3.5 py-1.5 text-xs font-semibold text-gold">
-                Master Thesis — in progress
-              </span>
-            </div>
+            {thesis.pdf ? (
+              <div className="mt-4 flex flex-wrap gap-2">
+                <a
+                  href={asset(thesis.pdf)}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="inline-flex items-center gap-1.5 rounded-full bg-accent px-3.5 py-1.5 text-xs font-semibold text-bg shadow-sm transition-transform hover:scale-[1.03] hover:bg-accent-soft"
+                >
+                  Read thesis <ExternalLink size={12} />
+                </a>
+              </div>
+            ) : null}
 
             <div className="mt-4 hidden md:block">
               <p className="text-sm leading-relaxed text-ink-muted">
                 {thesis.summary}
               </p>
               <ul className="mt-4 space-y-2 text-sm text-ink-muted">
-                {thesis.objectives.map((h) => (
+                {thesis.objectives.slice(0, 5).map((h) => (
                   <li key={h} className="flex gap-2">
-                    <span className="mt-1.5 inline-block h-1.5 w-1.5 flex-none rounded-full bg-gold" />
+                    <span className="mt-1.5 inline-block h-1.5 w-1.5 flex-none rounded-full bg-accent/70" />
                     <span>{h}</span>
                   </li>
                 ))}
@@ -207,7 +222,6 @@ export default function Research() {
             <span className="chip chip-accent">
               {paper.venue} {paper.year}
             </span>
-            <span className="chip">Equal contribution</span>
           </div>
           <h3 className="mt-3 text-2xl font-semibold text-ink">{paper.title}</h3>
           <p className="text-sm text-ink-muted">{paper.authors}</p>
@@ -221,7 +235,7 @@ export default function Research() {
                 rel="noreferrer"
                 className="inline-flex items-center gap-1.5 rounded-full bg-accent px-4 py-2 text-sm font-semibold text-bg shadow-sm transition-transform hover:scale-[1.03] hover:bg-accent-soft"
               >
-                Read paper · {link.label} <ExternalLink size={13} />
+                {link.label} <ExternalLink size={13} />
               </a>
             ))}
           </div>
@@ -241,6 +255,14 @@ export default function Research() {
               </li>
             ))}
           </ul>
+
+          <div className="mt-5 flex flex-wrap gap-2">
+            {paper.tags.map((tag) => (
+              <span key={tag} className="chip">
+                {tag}
+              </span>
+            ))}
+          </div>
         </div>
       </DetailModal>
 
@@ -266,9 +288,22 @@ export default function Research() {
           </h3>
           <p className="text-sm text-ink-muted">{thesis.org}</p>
 
+          {thesis.pdf ? (
+            <div className="mt-4 flex flex-wrap gap-2">
+              <a
+                href={asset(thesis.pdf)}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full bg-accent px-4 py-2 text-sm font-semibold text-bg shadow-sm transition-transform hover:scale-[1.03] hover:bg-accent-soft"
+              >
+                Read thesis <ExternalLink size={13} />
+              </a>
+            </div>
+          ) : null}
+
           <div className="mt-4 flex flex-wrap gap-2">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-gold/50 bg-gold/15 px-3.5 py-1.5 text-xs font-semibold text-gold">
-              Master Thesis — in progress
+              Master Thesis — completed
             </span>
           </div>
 
@@ -282,7 +317,7 @@ export default function Research() {
           <ul className="mt-2 space-y-2 text-sm text-ink-muted">
             {thesis.objectives.map((h) => (
               <li key={h} className="flex gap-2">
-                <span className="mt-1.5 inline-block h-1.5 w-1.5 flex-none rounded-full bg-gold" />
+                <span className="mt-1.5 inline-block h-1.5 w-1.5 flex-none rounded-full bg-accent/70" />
                 <span>{h}</span>
               </li>
             ))}

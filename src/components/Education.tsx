@@ -33,10 +33,15 @@ export default function Education() {
               <MapPin size={12} />
               {e.location}
             </div>
-            {e.note ? (
-              <div className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-gold/10 px-2.5 py-1 font-mono text-[11px] uppercase tracking-wider text-gold">
-                {e.note}
-              </div>
+            {e.highlights ? (
+              <ul className="mt-4 space-y-2 text-xs leading-relaxed text-gold/70">
+                {e.highlights.map((highlight) => (
+                  <li key={highlight} className="flex gap-2">
+                    <span className="mt-1.5 h-1 w-1 flex-none rounded-full bg-gold/50" />
+                    <span>{highlight}</span>
+                  </li>
+                ))}
+              </ul>
             ) : null}
           </motion.div>
         ))}

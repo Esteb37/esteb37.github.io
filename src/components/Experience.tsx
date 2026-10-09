@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Briefcase, MapPin } from "lucide-react";
+import { ArrowUpRight, Briefcase, ExternalLink, MapPin } from "lucide-react";
 import { useState } from "react";
 import Section from "./Section";
 import DetailModal from "./DetailModal";
@@ -17,7 +17,7 @@ export default function Experience() {
       id="experience"
       label="// experience"
       title="Where I have built things."
-      description="Research and industry roles, from anthropomorphic hands at ETH and force-sensing floors in Tokyo to four internships at Meta on PyTorch/ExecuTorch, Core AI and WhatsApp Infrastructure."
+      description="Research and industry roles spanning semantic SLAM and robot deployment at ETH, multi-agent localization in Tokyo, and four internships at Meta."
     >
       <ol className="relative ml-3 border-l border-border">
         {experience.map((item, idx) => (
@@ -96,6 +96,23 @@ export default function Experience() {
                 ))}
               </ul>
 
+              {item.links && item.links.length > 0 ? (
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {item.links.map((link) => (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs font-medium text-accent transition-colors hover:bg-accent/20"
+                    >
+                      {link.label} <ExternalLink size={11} />
+                    </a>
+                  ))}
+                </div>
+              ) : null}
+
               {item.tags && item.tags.length > 0 ? (
                 <div className="mt-4 flex flex-wrap gap-2">
                   {item.tags.map((tag) => (
@@ -156,6 +173,22 @@ export default function Experience() {
                 </li>
               ))}
             </ul>
+
+            {active.links && active.links.length > 0 ? (
+              <div className="mt-5 flex flex-wrap gap-2">
+                {active.links.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-3 py-1.5 text-xs font-medium text-accent transition-colors hover:bg-accent/20"
+                  >
+                    {link.label} <ExternalLink size={11} />
+                  </a>
+                ))}
+              </div>
+            ) : null}
 
             {active.tags && active.tags.length > 0 ? (
               <div className="mt-5 flex flex-wrap gap-2">

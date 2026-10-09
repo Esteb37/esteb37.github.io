@@ -4,21 +4,38 @@ export const publications: Publication[] = [
   {
     title:
       "OpenFrontier: General Navigation with Visual-Language Grounded Frontiers",
-    authors: "Esteban Padilla Cerdio*, Boyang Sun*, Marc Pollefeys, Hermann Blum",
+    authors: "Esteban Padilla Cerdio, Boyang Sun, Marc Pollefeys, Hermann Blum",
     venue: "Robotics: Science and Systems (RSS)",
     year: 2026,
     abstract:
       "Open-world navigation requires robots to make decisions in complex everyday environments while adapting to flexible task requirements. We formulate navigation as a sparse subgoal identification and reaching problem and propose OpenFrontier, a training-free framework that uses visual navigation frontiers as semantic anchors. OpenFrontier presents detected frontiers to a VLM in image space, enabling efficient language-conditioned exploration without dense 3D mapping, policy training, or fine-tuning.",
     highlights: [
       "Object-aware exploration policies that integrate frontier exploration with vision–language models.",
-      "77% success rate on ObjectNav benchmarks in fully zero-shot settings.",
+      "77.3% success rate on HM3D ObjectNav in a fully zero-shot setting.",
       "Real-world deployment on a mobile legged robot in large indoor environments.",
     ],
-    images: ["openfrontier-1.png"],
+    tags: ["VLMs", "ObjectNav", "Zero-shot", "Semantic Navigation", "Spot"],
+    images: ["openfrontier-1.webp"],
     links: [
+      {
+        label: "RSS Paper",
+        href: "https://www.roboticsproceedings.org/rss22/p067.html",
+      },
+      {
+        label: "arXiv",
+        href: "https://arxiv.org/abs/2603.05377",
+      },
       {
         label: "Project Website",
         href: "https://boysun045.github.io/OpenFrontier-Project/",
+      },
+      {
+        label: "Video",
+        href: "https://www.youtube.com/watch?v=iZt5yWM9tIs",
+      },
+      {
+        label: "Code",
+        href: "https://github.com/cvg/OpenFrontier",
       },
     ],
   },
@@ -28,7 +45,7 @@ export const thesis: ThesisCard = {
   title: "Common Ground: Tracking Human-Robot Interaction through Coarse Force-Plate Sensing",
   subtitle: "Master Thesis",
   org: "GVLab — University of Tokyo",
-  period: "August 2026",
+  period: "Completed August 2026",
   summary:
   "A real-time, privacy-preserving smart-floor sensing framework for tracking humans, robots, and objects and recovering physical interaction structure from coarse ground-reaction-force and center-of-pressure measurements, without cameras or wearables.",
   objectives: [
@@ -40,5 +57,6 @@ export const thesis: ThesisCard = {
     "Characterize sensing accuracy and evaluate real-time multi-agent tracking performance under human–robot and object-interaction scenarios."
   ],
   tags: ["HRI", "Force plates", "ROS 2", "Streaming ML", "Privacy-preserving"],
-  image: "thesis.gif",
+  image: "thesis-cover.webp",
+  pdf: "CommonGround_EstebanPadillaCerdio.pdf",
 };

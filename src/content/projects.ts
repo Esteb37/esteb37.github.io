@@ -8,9 +8,76 @@ export const projectCategories: ProjectCategory[] = [
 ];
 
 export const projects: Project[] = [
+  {
+    id: "Common Ground",
+    sortDate: "2026-08",
+    title: "Common Ground — Force-Plate Multi-Agent Localization",
+    subtitle:
+      "Real-time localization and tracking of humans, robots and objects without cameras or wearables.",
+    category: "Semantic Navigation & SLAM",
+    period: "University of Tokyo · Feb – Aug 2026",
+    org: "GVLab — University of Tokyo",
+    summary:
+      "Common Ground is a privacy-preserving smart-floor sensing system that estimates the position, velocity, heading and load of humans, robots and objects from a grid of force plates. It combines probabilistic tracking, constrained optimization and sensor fusion to recover physical interaction structure from underdetermined measurements in real time.",
+    highlights: [
+      "Tracked multiple humans, robots and objects without cameras or wearable sensors.",
+      "Resolved ambiguous multi-contact measurements using physics-constrained convex optimization.",
+      "Preserved agent identity through footprint assignment and probabilistic temporal tracking.",
+      "Fused measurements across force plates for global localization and HRI analysis.",
+    ],
+    tags: [
+      "Multi-Agent Localization",
+      "Sensor Fusion",
+      "Force Sensing",
+      "HRI",
+      "Convex Optimization",
+      "ROS 2",
+    ],
+    cover: "thesis-cover.webp",
+    videos: [
+      {
+        kind: "mp4",
+        src: "twopeople_aligned.mp4",
+        title: "Two-person localization and tracking",
+      },
+      {
+        kind: "mp4",
+        src: "full_dots_aligned.mp4",
+        title: "Full-floor multi-agent tracking",
+      },
+      {
+        kind: "mp4",
+        src: "pickup_aligned.mp4",
+        title: "Object pickup interaction",
+      },
+      {
+        kind: "mp4",
+        src: "touch2_aligned.mp4",
+        title: "Human–robot touch interaction",
+      },
+      {
+        kind: "mp4",
+        src: "tworobots_aligned.mp4",
+        title: "Two-robot localization and tracking",
+      },
+    ],
+    links: [
+      {
+        label: "Thesis PDF",
+        href: "./assets/CommonGround_EstebanPadillaCerdio.pdf",
+      },
+      {
+        label: "Common Ground Feature",
+        href: "https://tecgihan-co-jp.translate.goog/case/introduction/22.html?_x_tr_sl=ja&_x_tr_tl=en&_x_tr_hl=es-419&_x_tr_pto=wapp",
+      },
+    ],
+    featured: true,
+  },
+
   // === Dexterous Manipulation ===
   {
     id: "rapunzel-hand",
+    sortDate: "2025-02",
     title: "RAPUNZEL — Tendon-Driven Anthropomorphic Hand",
     subtitle:
       "17-DoF tendon-driven hand integrated with a Franka Panda arm, taught by demonstration.",
@@ -33,12 +100,23 @@ export const projects: Project[] = [
       "MOCAP Teleop",
       "Franka",
     ],
-    cover: "hand-spinner.gif",
+    cover: "hand-spinner-cover.webp",
     gallery: [
-      "rapunzel-labelled.png",
-      "rapunzel2.jpg",
-      "rapunzel3.jpg",
-      "hand-card.gif",
+      "rapunzel-labelled.webp",
+      "rapunzel2.webp",
+      "rapunzel3.webp",
+    ],
+    videos: [
+      {
+        kind: "mp4",
+        src: "hand-spinner.mp4",
+        title: "In-hand object spinning",
+      },
+      {
+        kind: "mp4",
+        src: "hand-card.mp4",
+        title: "Card manipulation",
+      },
     ],
     links: [
       {
@@ -50,6 +128,7 @@ export const projects: Project[] = [
   },
   {
     id: "egoverse",
+    sortDate: "2025-12",
     title: "EgoVerse — Egocentric Human Demonstration Data",
     subtitle:
       "Contributed as a data collector to EgoVerse, a collaborative ecosystem for human-centric robot learning.",
@@ -64,12 +143,13 @@ export const projects: Project[] = [
       "Direct experience operating capture hardware (Quest, body-worn cameras) for data scale.",
     ],
     tags: ["Data collection", "Egocentric", "Robot learning"],
-    cover: "me-egoverse.png",
-    gallery: ["egoverse.jpg", "egoverse2.jpg","me-egoverse.png"],
+    cover: "me-egoverse.webp",
+    gallery: ["egoverse.webp", "egoverse2.jpg", "me-egoverse.webp"],
     links: [{ label: "egoverse.ai", href: "https://egoverse.ai" }],
   },
   {
     id: "groot-hackathon",
+    sortDate: "2025-04",
     title: "Mistral AI × GR00T — Generalized VLA in 48 Hours",
     subtitle:
       "Built a vision–language–action pipeline on NVIDIA GR00T during the Mistral AI Robotics Hackathon in Paris.",
@@ -85,7 +165,7 @@ export const projects: Project[] = [
     ],
     tags: ["VLA", "NVIDIA GR00T", "LeRobot", "Mistral AI", "Hackathon"],
     cover: "me-with-groot.jpg",
-    gallery: ["me-with-groot.jpg", "groot.jpg"],
+    gallery: ["me-with-groot.jpg", "groot.webp"],
     videos: [
       {
         kind: "mp4",
@@ -105,6 +185,7 @@ export const projects: Project[] = [
   // === Semantic Navigation & SLAM ===
   {
     id: "openfrontier",
+    sortDate: "2026-07",
     title: "OpenFrontier — VLM-Grounded Frontier Navigation",
     subtitle:
       "Training-free language-conditioned navigation that uses visual frontiers as semantic anchors. RSS 2026.",
@@ -114,20 +195,37 @@ export const projects: Project[] = [
     summary:
       "OpenFrontier reframes open-world navigation as a sparse subgoal identification problem. Detected visual frontiers are presented to a VLM in image space, which scores them for relevance to a natural-language goal. The grounded frontiers drive long-horizon, language-conditioned exploration without dense 3D mapping or fine-tuning, with strong zero-shot results across ObjectNav benchmarks and real-robot deployment.",
     highlights: [
-      "77% success rate on ObjectNav benchmarks, zero-shot.",
+      "77.3% success rate on HM3D ObjectNav, zero-shot.",
       "Set-of-marks frontier prompting over single RGB observations.",
       "Real-world deployment on a mobile legged robot.",
     ],
     tags: ["VLMs", "ObjectNav", "Habitat", "Zero-shot", "Mobile robots"],
-    cover: "openfrontier-1.png",
-    gallery: ["openfrontier-1.png", "openfrontier-2.png"],
+    cover: "openfrontier-1.webp",
+    gallery: ["openfrontier-1.webp", "openfrontier-2.webp"],
+    videos: [
+      {
+        kind: "youtube",
+        src: "iZt5yWM9tIs",
+        title: "OpenFrontier — project video",
+      },
+    ],
     links: [
       { label: "arXiv 2603.05377", href: "https://arxiv.org/abs/2603.05377" },
+      {
+        label: "RSS Paper",
+        href: "https://www.roboticsproceedings.org/rss22/p067.html",
+      },
+      {
+        label: "Project Website",
+        href: "https://boysun045.github.io/OpenFrontier-Project/",
+      },
+      { label: "Code", href: "https://github.com/cvg/OpenFrontier" },
     ],
     featured: true,
   },
   {
     id: "ocslam",
+    sortDate: "2024-03",
     title: "Easy Object-Conscious SLAM",
     subtitle:
       "Lightweight semantic SLAM for mobile robots, fusing 2D LiDAR with YOLOv8 detection on a budget.",
@@ -142,8 +240,8 @@ export const projects: Project[] = [
       "Designed for deployment on small robots without dense 3D maps.",
     ],
     tags: ["SLAM", "YOLOv8", "LiDAR", "ROS"],
-    cover: "ocslam.png",
-    gallery: ["ocslam.png"],
+    cover: "ocslam.webp",
+    gallery: ["ocslam.webp"],
     videos: [
       {
         kind: "youtube",
@@ -159,15 +257,16 @@ export const projects: Project[] = [
     links: [
       {
         label: "Repository",
-        href: "https://github.com/Esteb37/object-conscious-slam",
+        href: "https://github.com/Esteb37/easy-object-conscious-slam",
       },
     ],
   },
   {
     id: "puzzlebot-slam",
+    sortDate: "2024-06",
     title: "Ray-tracing SLAM for maze-solving robot",
     subtitle:
-      "AUtonomous navigation stack for a differential-drive robot equipped with LIDAR and enhanced with ray-tracing capabilities for maze navigation.",
+      "Autonomous navigation stack for a differential-drive robot equipped with LiDAR and enhanced with ray-tracing capabilities for maze navigation.",
     category: "Semantic Navigation & SLAM",
     period: "Tec de Monterrey · 2024",
     org: "Tec de Monterrey",
@@ -178,7 +277,7 @@ export const projects: Project[] = [
       "Bug navigation with ray-tracing, KF localization and ArUco marker detection scripts.",
     ],
     tags: ["ROS", "Gazebo", "Kalman Filter", "ArUco"],
-    cover: "puzzlebot",
+    cover: "puzzlebot.webp",
     links: [
       {
         label: "Repository",
@@ -190,6 +289,7 @@ export const projects: Project[] = [
   // === Aerial Robotics & Control ===
   {
     id: "atic",
+    sortDate: "2025-05",
     title: "Distributed MPC for Modular Aerial Robots",
     subtitle:
       "ADMM-based decentralized MPC for the DRAGON articulated aerial platform.",
@@ -211,19 +311,43 @@ export const projects: Project[] = [
       "Trajectory optimization",
       "Aerial robotics",
     ],
-    cover: "atic-snake.gif",
-    gallery: [
-      "dragon.jpeg",
-      "atic-snake.gif",
-      "atic-ushape.gif",
-      "atic-line.gif",
-      "atic-wrench.gif",
+    cover: "atic-snake-cover.webp",
+    gallery: ["dragon.jpeg"],
+    videos: [
+      {
+        kind: "mp4",
+        src: "atic-snake.mp4",
+        title: "Snake configuration trajectory",
+      },
+      {
+        kind: "mp4",
+        src: "atic-ushape.mp4",
+        title: "U-shape obstacle trajectory",
+      },
+      {
+        kind: "mp4",
+        src: "atic-line.mp4",
+        title: "Line configuration trajectory",
+      },
+      {
+        kind: "mp4",
+        src: "atic-wrench.mp4",
+        title: "Distributed wrench control",
+      },
+    ],
+    links: [
+      { label: "Repository", href: "https://github.com/Esteb37/atic" },
+      {
+        label: "DRAGON",
+        href: "https://www.dragon.t.u-tokyo.ac.jp/publications/references/2023-ijrr-dragon-zhao/",
+      },
     ],
   },
 
   // === ML Systems & Performance ===
   {
     id: "executorch",
+    sortDate: "2024-08",
     title: "ExecuTorch GPU Tooling & 4-bit Quantization",
     subtitle:
       "Open-source GPU tooling and matmul/quantization optimizations for edge ML inference at Meta.",
@@ -241,9 +365,16 @@ export const projects: Project[] = [
     tags: ["PyTorch", "ExecuTorch", "CUDA", "Quantization", "GPU perf"],
     cover: "executorch-internship.png",
     gallery: ["executorch-internship.png", "executorch-logo.webp"],
+    links: [
+      {
+        label: "GPUInfo Repository",
+        href: "https://github.com/pytorch/executorch/tree/main/backends/vulkan/tools/gpuinfo",
+      },
+    ],
   },
   {
     id: "core-ai-enhance",
+    sortDate: "2023-08",
     title: "Core AI — Image Enhancement CPU Rewrite",
     subtitle:
       "Re-engineered a deep-learning image enhancement algorithm for efficient CPU execution.",
@@ -258,7 +389,7 @@ export const projects: Project[] = [
       "~99.7% runtime reduction with preserved visual quality.",
     ],
     tags: ["C++", "CPU Optimization", "Image Processing"],
-    cover: "autoenhance-after.png",
-    gallery: ["autoenhance-before.png", "autoenhance-after.png"],
+    cover: "autoenhance-after.webp",
+    gallery: ["autoenhance-before.webp", "autoenhance-after.webp"],
   },
 ];

@@ -15,8 +15,12 @@ export default function Projects() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const filtered = useMemo(() => {
-    if (filter === "All") return projects;
-    return projects.filter((p) => p.category === filter);
+    const matching =
+      filter === "All"
+        ? projects
+        : projects.filter((project) => project.category === filter);
+
+    return [...matching].sort((a, b) => b.sortDate.localeCompare(a.sortDate));
   }, [filter]);
 
   const handleOpen = useCallback(

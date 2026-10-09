@@ -8,7 +8,6 @@ const links = [
   { id: "experience", label: "Experience" },
   { id: "projects", label: "Projects" },
   { id: "education", label: "Education" },
-  { id: "gallery", label: "Gallery" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -27,7 +26,7 @@ export default function Nav() {
           <span className="inline-flex h-7 w-7 items-center justify-center rounded-md border border-accent/40 bg-accent/10 text-accent">
             EPC
           </span>
-          <span className="hidden sm:inline">esteban.padillacerdio</span>
+          <span className="hidden sm:inline">Esteban Padilla Cerdio</span>
         </a>
 
         <nav className="hidden md:block">
