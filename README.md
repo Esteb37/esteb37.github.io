@@ -4,7 +4,7 @@ Personal portfolio website presenting my work as a Robotics Research Engineer fo
 
 Built with **Vite + React + TypeScript + Tailwind CSS** and deployed automatically to **GitHub Pages**.
 
-## Stack
+## Stack 
 
 - **React 18 + TypeScript** components, content-driven from typed modules under `src/content/`.
 - **Tailwind CSS** for a dark, robotics/lab aesthetic.
