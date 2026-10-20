@@ -18,8 +18,8 @@ export default function App() {
         {/* Temporary RSS 2026 entry point; the existing portfolio continues below. */}
         <Hero />
         <About />
-        <Research />
         <Experience />
+        <Research />
         <Projects />
         <Education />
         <Skills />

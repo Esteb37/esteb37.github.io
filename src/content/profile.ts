@@ -4,14 +4,14 @@ export const profile: Profile = {
   name: "Esteban Padilla Cerdio",
   tagline: "Robotics Research Engineer",
   focusAreas: [
+    "Robot Learning",
     "Autonomous Navigation",
-    "Localization & Sensor Fusion",
-    "Real-Time Robotics",
+    "Perception & State Estimation",
   ],
   locations: ["Zürich, Switzerland", "Open to relocate"],
   bio: [
-    "Robotics research engineer specialized in autonomous navigation, localization, sensor fusion and real-time robotics. I build and deploy end-to-end systems that help robots understand where they are, where to go and how to operate reliably in the physical world.",
-    "Currently a Research Assistant in the Computer Vision and Geometry Lab at ETH Zürich, working on semantic SLAM, dense object localization, visual frontier navigation and multi-robot collaboration. Previously at GVLab, the ETH Soft Robotics Laboratory and Meta.",
+    "Robotics research engineer building robots that perceive, learn and move through the real world. My work spans the full stack, from perception, state estimation and mapping to learned policies and planning, and I care most about getting it running on physical hardware.",
+    "Currently a Robotics Research Assistant in the Computer Vision and Geometry Lab at ETH Zürich, working on multi-agent localization, mapping and language-grounded navigation with legged and humanoid robots. Before that I published language-conditioned navigation work at RSS 2026, trained and deployed manipulation policies at the ETH Soft Robotics Lab, built camera-free multi-agent tracking at GVLab in Tokyo, and optimized on-device ML inference across four internships at Meta.",
   ],
   links: {
     github: "https://github.com/esteb37",
@@ -20,25 +20,26 @@ export const profile: Profile = {
     cv: "Esteban_Padilla_Cerdio_CV.pdf",
   },
   portrait: "hero-portrait.webp",
+  aboutImage: "me-robot-2.jpg",
 };
 
 export const pillars: Pillar[] = [
   {
+    title: "Robot Learning",
+    description:
+      "Reinforcement and imitation learning on real hardware: teleoperation and demonstration pipelines, sim-to-real policy training and deployment, and vision–language–action models for manipulation.",
+    tag: "// learning",
+  },
+  {
     title: "Autonomous Navigation",
     description:
-      "Semantic SLAM, frontier exploration and language-grounded navigation, from perception and mapping through planning and deployment on physical robots.",
+      "Language-grounded and frontier-based exploration, semantic SLAM and multi-agent localization, from mapping and planning through deployment on legged and wheeled robots.",
     tag: "// navigation",
   },
   {
-    title: "Localization & Sensor Fusion",
+    title: "Perception & State Estimation",
     description:
-      "Probabilistic tracking and state estimation that combine vision, LiDAR, odometry and force sensing for robots, people and objects.",
-    tag: "// localization",
-  },
-  {
-    title: "Robot Learning",
-    description:
-      "Imitation and reinforcement learning on real anthropomorphic hardware, including motion-capture teleoperation, demonstration collection and sim-to-real policy deployment.",
-    tag: "// learning",
+      "Probabilistic tracking, sensor fusion and constrained optimization over vision, LiDAR, odometry and force sensing, plus the efficient ML inference that runs it on-device.",
+    tag: "// perception",
   },
 ];

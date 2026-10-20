@@ -30,7 +30,7 @@ export default function DetailModal({ open, onClose, children }: Props) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="fixed inset-0 z-50 flex items-end justify-center bg-black/75 p-0 backdrop-blur sm:items-center sm:p-6"
+          className="fixed inset-0 z-50 flex items-end justify-center bg-ink/40 p-0 backdrop-blur-sm sm:items-center sm:p-6"
           onClick={onClose}
         >
           <motion.div
@@ -38,12 +38,12 @@ export default function DetailModal({ open, onClose, children }: Props) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.98 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="relative max-h-[92vh] w-full max-w-2xl overflow-hidden rounded-t-3xl border border-border bg-bg-elevated sm:rounded-3xl"
+            className="relative max-h-[92vh] w-full max-w-2xl overflow-hidden rounded-t-2xl bg-bg-elevated shadow-2xl sm:rounded-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={onClose}
-              className="absolute right-4 top-4 z-10 inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-bg/80 text-ink-muted backdrop-blur transition-colors hover:border-accent/60 hover:text-ink"
+              className="icon-btn absolute right-4 top-4 z-10 h-9 w-9"
               aria-label="Close"
             >
               <X size={16} />

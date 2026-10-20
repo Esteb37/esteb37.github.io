@@ -7,9 +7,9 @@ export default function Education() {
   return (
     <Section
       id="education"
-      label="// education"
+      label="Education"
       title="Education."
-      description="From a robotics undergrad valedictorian in Mexico, to a year abroad in Germany, to an MSc Robotics, Systems and Control at ETH Zürich."
+      description="From a robotics undergrad valedictorian in Mexico, to an exchange semester in Germany, to an MSc Robotics, Systems and Control at ETH Zürich."
     >
       <div className="grid gap-4 md:grid-cols-3">
         {education.map((e, idx) => (
@@ -19,25 +19,25 @@ export default function Education() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.4, delay: idx * 0.05 }}
-            className="surface surface-hover p-5"
+            className="surface p-6"
           >
-            <div className="flex items-center gap-2 text-accent">
-              <GraduationCap size={18} />
-              <span className="font-mono text-[11px] uppercase tracking-[0.15em]">
-                {e.period}
-              </span>
+            <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-accent-soft text-accent">
+              <GraduationCap size={20} />
+            </span>
+            <div className="mt-5 text-sm font-medium text-ink-subtle">
+              {e.period}
             </div>
-            <h3 className="mt-2 text-lg font-semibold text-ink">{e.school}</h3>
-            <p className="text-sm text-ink-muted">{e.degree}</p>
-            <div className="mt-3 flex items-center gap-1.5 font-mono text-[11px] text-ink-subtle">
-              <MapPin size={12} />
+            <h3 className="mt-1 text-lg font-semibold text-ink">{e.school}</h3>
+            <p className="mt-0.5 text-sm text-ink-muted">{e.degree}</p>
+            <div className="mt-3 flex items-center gap-1.5 text-sm text-ink-subtle">
+              <MapPin size={14} />
               {e.location}
             </div>
             {e.highlights ? (
-              <ul className="mt-4 space-y-2 text-xs leading-relaxed text-gold/70">
+              <ul className="mt-5 space-y-2 border-t border-border pt-4 text-sm leading-relaxed text-ink-muted">
                 {e.highlights.map((highlight) => (
-                  <li key={highlight} className="flex gap-2">
-                    <span className="mt-1.5 h-1 w-1 flex-none rounded-full bg-gold/50" />
+                  <li key={highlight} className="flex gap-2.5">
+                    <span className="bullet" />
                     <span>{highlight}</span>
                   </li>
                 ))}

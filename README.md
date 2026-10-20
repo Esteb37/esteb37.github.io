@@ -1,13 +1,13 @@
 # Esteban Padilla Cerdio — Portfolio
 
-Personal portfolio website presenting my work as a Robotics Research Engineer focused on **robot learning**, **semantic navigation**, and **dexterous manipulation**.
+Personal portfolio website presenting my work as a Robotics Research Engineer focused on **robot learning**, **autonomous navigation**, **manipulation**, and **perception**.
 
 Built with **Vite + React + TypeScript + Tailwind CSS** and deployed automatically to **GitHub Pages**.
 
 ## Stack 
 
 - **React 18 + TypeScript** components, content-driven from typed modules under `src/content/`.
-- **Tailwind CSS** for a dark, robotics/lab aesthetic.
+- **Tailwind CSS** for a clean, light aesthetic with a violet accent.
 - **Framer Motion** for scroll/hover animations.
 - **lucide-react** icons.
 - Single content layer — no backend, no CMS.
@@ -30,7 +30,7 @@ All content is in plain TypeScript files (typed) so you get autocomplete and ref
 - `src/content/profile.ts` — name, tagline, bio, focus areas, social links, hero portrait
 - `src/content/experience.ts` — research and industry timeline
 - `src/content/publications.ts` — papers (OpenFrontier) and current Master Thesis card
-- `src/content/projects.ts` — categorized projects (Learning & manipulation, Semantic Navigation & SLAM, Aerial Robotics & Control, ML Systems & Performance)
+- `src/content/projects.ts` — categorized projects (Robot Learning & Manipulation, Navigation & Perception, Aerial Robotics & Control, ML Systems & Performance)
 - `src/content/education.ts` — schools/degrees
 - `src/content/skills.ts` — skill groups and languages
 

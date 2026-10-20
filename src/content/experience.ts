@@ -2,31 +2,34 @@ import type { ExperienceItem } from "@/lib/types";
 
 export const experience: ExperienceItem[] = [
   {
-    role: "Research Assistant",
+    role: "Robotics Research Assistant",
     org: "Computer Vision and Geometry Lab, ETH Zürich",
     location: "Zürich, Switzerland",
     period: "Sep 2026 – Present",
     current: true,
+    logo: "logos/cvg.png",
     bullets: [
-      "Implementing a full-stack semantic SLAM pipeline with video-based mapping, dense object localization, visual frontier navigation and multi-robot collaboration under Prof. Dr. Marc Pollefeys.",
+      "Working on multi-agent localization, mapping and language-grounded navigation in visually repetitive indoor spaces under Prof. Dr. Marc Pollefeys, covering Boston Dynamics Spot, Pollen Robotics Reachy and people wearing recording glasses.",
+      "The project aims to ground natural-language navigation requests in visual and geometric cues so robots can tell apart similar-looking destinations.",
       "Setting up, deploying and maintaining Spot Arm, Reachy 2 and Franka Duo for lab experiments.",
     ],
     tags: [
-      "Semantic SLAM",
-      "Visual Navigation",
-      "Multi-Robot Systems",
+      "Multi-Agent SLAM",
+      "Language-Grounded Navigation",
+      "Legged & Humanoid Robots",
       "Robot Deployment",
     ],
   },
   {
-    role: "Research Intern",
+    role: "Research Intern — MSc Thesis",
     org: "GVLab — University of Tokyo",
     location: "Tokyo, Japan",
     period: "Feb – Aug 2026",
     logo: "logos/utokyo.png",
     bullets: [
-      "Developed Common Ground, a real-time multi-agent localization and tracking system that estimates human and robot position, velocity, heading and load from a grid of force plates—without cameras or wearables.",
-      "Designed probabilistic tracking, constrained optimization and sensor-fusion methods for footprint assignment, identity preservation and HRI analysis in an underdetermined system.",
+      "Developed a method to track humans, robots and their interactions using ground-reaction forces sampled at 100 Hz from a coarse grid of force plates, without cameras or wearables.",
+      "Applied physics-constrained convex optimization to attribute forces and infer contacts, with probabilistic tracking to maintain identities during interactions.",
+      "Implemented ROS 2 sensor ingestion, calibration, synchronization, filtering and visualization.",
     ],
     links: [
       {
@@ -34,24 +37,37 @@ export const experience: ExperienceItem[] = [
         href: "https://tecgihan-co-jp.translate.goog/case/introduction/22.html?_x_tr_sl=ja&_x_tr_tl=en&_x_tr_hl=es-419&_x_tr_pto=wapp",
       },
     ],
-    tags: ["Multi-Agent Localization", "Sensor Fusion", "HRI", "Force Sensing"],
+    tags: [
+      "Multi-Object Tracking",
+      "State Estimation",
+      "Convex Optimization",
+      "HRI",
+      "ROS 2",
+    ],
   },
   {
-    role: "Teaching Assistant",
+    role: "Teaching Assistant — Real World Robotics",
     org: "Soft Robotics Laboratory, ETH Zürich",
     location: "Zürich, Switzerland",
     period: "Sep 2025 – Feb 2026",
     logo: "logos/srl.png",
     bullets: [
-      "Implemented a PPO training pipeline in Isaac Lab and deployed it to an ORCA robotic hand for the Real World Robotics course under Prof. Dr. Robert Katzschmann.",
-      "Collected bimanual manipulation demonstrations using motion capture and robot hardware for EgoVerse.",
+      "Supported student teams in the Real World Robotics course under Prof. Dr. Robert Katzschmann with robot bring-up, control, simulation and physical testing.",
+      "As additional lab research, implemented a PPO training pipeline in Isaac Lab for selecting and rotating a cube in-hand to a requested face, and deployed the policy to a physical ORCA robotic hand.",
+      "Recorded egocentric human manipulation demonstrations with Aria glasses and teleoperated a bimanual Franka / ORCA hand system via Meta Quest hand tracking for EgoVerse, about 40 hours of data in total.",
     ],
     links: [
       { label: "ORCA", href: "https://orca.ethz.ch" },
       { label: "Real World Robotics", href: "https://rwr.ethz.ch" },
       { label: "EgoVerse", href: "https://egoverse.ai" },
     ],
-    tags: ["PPO", "Isaac Lab", "Sim-to-Real", "Motion Capture"],
+    tags: [
+      "Reinforcement Learning",
+      "Sim-to-Real",
+      "Dexterous Manipulation",
+      "Teleoperation",
+      "Data Collection",
+    ],
   },
   {
     role: "Software Engineering Intern — PyTorch / ExecuTorch",
@@ -61,7 +77,7 @@ export const experience: ExperienceItem[] = [
     logo: "logos/meta.png",
     bullets: [
       "Built open-source Vulkan GPU characterization tooling for PyTorch and ExecuTorch.",
-      "Optimized edge inference through memory-management changes, loop unrolling and 4-bit quantization, reducing representative runtimes by approximately 70%.",
+      "Optimized edge matrix multiplication through buffer and memory management, loop unrolling and 4-bit quantization, reducing representative inference runtime by approximately 70%.",
     ],
     links: [
       {
@@ -69,7 +85,7 @@ export const experience: ExperienceItem[] = [
         href: "https://github.com/pytorch/executorch/tree/main/backends/vulkan/tools/gpuinfo",
       },
     ],
-    tags: ["PyTorch", "ExecuTorch", "Vulkan", "Quantization"],
+    tags: ["PyTorch", "On-Device ML", "Vulkan", "Quantization"],
   },
   {
     role: "Software Engineering Intern — Core AI",
@@ -78,10 +94,10 @@ export const experience: ExperienceItem[] = [
     period: "Jun – Aug 2023",
     logo: "logos/meta.png",
     bullets: [
-      "Re-engineered a deep-learning image and video enhancement pipeline for C++ CPU-only execution on servers and AR glasses.",
-      "Reduced runtime by 99.66% through algorithmic and systems optimizations.",
+      "Re-engineered a deep-learning image and video enhancement pipeline, previously deployed on a virtual GPU, for C++ CPU execution on servers and AR glasses.",
+      "Reduced runtime by 99.66% while preserving visual quality.",
     ],
-    tags: ["C++", "CPU Optimization", "Computer Vision"],
+    tags: ["C++", "ML Inference", "Computer Vision"],
   },
   {
     role: "Software Engineering Intern — WhatsApp Infrastructure",
@@ -90,8 +106,8 @@ export const experience: ExperienceItem[] = [
     period: "May – Jul 2022",
     logo: "logos/meta.png",
     bullets: [
-      "Built asynchronous crash-report processing with logging and symbolication in Hack.",
-      "Reduced client upload wait time by approximately 95%.",
+      "Built centralized crash-report processing in Hack with logging, symbolication, categorization and asynchronous server communication.",
+      "Reduced client crash-log upload wait time by approximately 95%.",
     ],
     tags: ["Hack", "Distributed Systems", "Infrastructure"],
   },
@@ -102,9 +118,9 @@ export const experience: ExperienceItem[] = [
     period: "Jun – Aug 2021",
     logo: "logos/meta.png",
     bullets: [
-      "Partook in a three-week Android development bootcamp with Java, followed by a five-week project phase.",
-      "Developed a native application with a recommendation system aimed at developers who wish to find open-source projects that align with their interests.",
-      "Implemented an interaction-based recommendation algorithm",
-    ]
-  }
+      "Completed a three-week Android development bootcamp in Java, followed by a five-week project phase.",
+      "Developed a native app that recommends open-source projects to developers based on their interests, using an interaction-based recommendation algorithm.",
+    ],
+    tags: ["Android", "Java", "Recommender Systems"],
+  },
 ];

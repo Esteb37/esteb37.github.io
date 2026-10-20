@@ -1,71 +1,65 @@
 import { Github, Linkedin, Mail } from "lucide-react";
+import type { ReactNode } from "react";
 import Section from "./Section";
 import { profile } from "@/content/profile";
+
+type ContactLink = {
+  label: string;
+  value: string;
+  href: string;
+  icon: ReactNode;
+  external?: boolean;
+};
+
+const contactLinks: ContactLink[] = [
+  {
+    label: "Email",
+    value: profile.links.email,
+    href: `mailto:${profile.links.email}`,
+    icon: <Mail size={18} />,
+  },
+  {
+    label: "GitHub",
+    value: "github.com/esteb37",
+    href: profile.links.github,
+    icon: <Github size={18} />,
+    external: true,
+  },
+  {
+    label: "LinkedIn",
+    value: "/in/esteban-padilla-cerdio",
+    href: profile.links.linkedin,
+    icon: <Linkedin size={18} />,
+    external: true,
+  },
+];
 
 export default function Contact() {
   return (
     <Section
       id="contact"
-      label="// contact"
+      label="Contact"
       title="Let's talk robots."
-      description="Always happy to chat about robot learning, semantic navigation, dexterous manipulation, or anything embodied AI."
+      description="Always happy to chat about robot learning, navigation, manipulation, perception, or anything embodied AI."
     >
-      <div className="surface p-6 sm:p-8">
-        <div className="grid gap-6 sm:grid-cols-3">
+      <div className="grid gap-4 lg:grid-cols-3">
+        {contactLinks.map(({ label, value, href, icon, external }) => (
           <a
-            href={`mailto:${profile.links.email}`}
-            className="group flex items-start gap-3 rounded-xl border border-border p-4 transition-colors hover:border-accent/60"
+            key={label}
+            href={href}
+            target={external ? "_blank" : undefined}
+            rel={external ? "noreferrer" : undefined}
+            className="surface surface-hover group flex items-center gap-4 p-5"
           >
-            <Mail
-              size={18}
-              className="mt-0.5 text-accent transition-transform group-hover:scale-110"
-            />
-            <div>
-              <div className="font-mono text-[11px] uppercase tracking-wider text-ink-subtle">
-                Email
-              </div>
-              <div className="mt-0.5 text-sm text-ink">
-                {profile.links.email}
-              </div>
+            <span className="inline-flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-accent-soft text-accent transition-colors group-hover:bg-accent group-hover:text-white">
+              {icon}
+            </span>
+            <div className="min-w-0">
+              <div className="text-sm text-ink-subtle">{label}</div>
+              <div className="break-words font-medium text-ink">{value}</div>
             </div>
           </a>
-          <a
-            href={profile.links.github}
-            target="_blank"
-            rel="noreferrer"
-            className="group flex items-start gap-3 rounded-xl border border-border p-4 transition-colors hover:border-accent/60"
-          >
-            <Github
-              size={18}
-              className="mt-0.5 text-accent transition-transform group-hover:scale-110"
-            />
-            <div>
-              <div className="font-mono text-[11px] uppercase tracking-wider text-ink-subtle">
-                GitHub
-              </div>
-              <div className="mt-0.5 text-sm text-ink">github.com/esteb37</div>
-            </div>
-          </a>
-          <a
-            href={profile.links.linkedin}
-            target="_blank"
-            rel="noreferrer"
-            className="group flex items-start gap-3 rounded-xl border border-border p-4 transition-colors hover:border-accent/60"
-          >
-            <Linkedin
-              size={18}
-              className="mt-0.5 text-accent transition-transform group-hover:scale-110"
-            />
-            <div>
-              <div className="font-mono text-[11px] uppercase tracking-wider text-ink-subtle">
-                LinkedIn
-              </div>
-              <div className="mt-0.5 text-sm text-ink">
-                /in/esteban-padilla-cerdio
-              </div>
-            </div>
-          </a>
-        </div>
+        ))}
       </div>
     </Section>
   );

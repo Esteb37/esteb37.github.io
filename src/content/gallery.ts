@@ -19,7 +19,7 @@ export const gallery: GalleryItem[] = [
   },
   {
     src: "thesis-cover.webp",
-    alt: "Force-plate floor odometry",
+    alt: "Force-plate multi-agent tracking",
     caption: "Master Thesis · GVLab Tokyo",
   },
   {

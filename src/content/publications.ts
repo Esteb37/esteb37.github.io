@@ -4,7 +4,8 @@ export const publications: Publication[] = [
   {
     title:
       "OpenFrontier: General Navigation with Visual-Language Grounded Frontiers",
-    authors: "Esteban Padilla Cerdio, Boyang Sun, Marc Pollefeys, Hermann Blum",
+    authors:
+      "Esteban Padilla Cerdio*, Boyang Sun*, Marc Pollefeys, Hermann Blum (*equal contribution)",
     venue: "Robotics: Science and Systems (RSS)",
     year: 2026,
     abstract:
@@ -56,7 +57,14 @@ export const thesis: ThesisCard = {
     "Provide a gait- and form-factor-agnostic sensing framework for humans, robots, and objects without cameras or wearable sensors.",
     "Characterize sensing accuracy and evaluate real-time multi-agent tracking performance under human–robot and object-interaction scenarios."
   ],
-  tags: ["HRI", "Force plates", "ROS 2", "Streaming ML", "Privacy-preserving"],
+  tags: [
+    "Multi-Object Tracking",
+    "State Estimation",
+    "Convex Optimization",
+    "HRI",
+    "ROS 2",
+    "Privacy-preserving",
+  ],
   image: "thesis-cover.webp",
   pdf: "CommonGround_EstebanPadillaCerdio.pdf",
 };

@@ -18,6 +18,7 @@ export type Profile = {
   bio: string[];
   links: ProfileLinks;
   portrait: string;
+  aboutImage?: string;
 };
 
 export type Pillar = {
@@ -69,8 +70,8 @@ export type VideoEmbed = {
 };
 
 export type ProjectCategory =
-  | "Learning & Manipulation"
-  | "Semantic Navigation & SLAM"
+  | "Robot Learning & Manipulation"
+  | "Navigation & Perception"
   | "Aerial Robotics & Control"
   | "ML Systems & Performance";
 

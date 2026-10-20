@@ -39,7 +39,7 @@ export default function Gallery() {
   return (
     <Section
       id="gallery"
-      label="// gallery"
+      label="Gallery"
       title="Visual archive."
       description="A scrolling collage of the work — hardware builds, demos, simulations and field captures. Click any tile to open the lightbox."
     >
@@ -53,7 +53,7 @@ export default function Gallery() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.05 }}
             transition={{ duration: 0.35, delay: (idx % 6) * 0.03 }}
-            className="group relative block w-full overflow-hidden rounded-xl border border-border bg-bg-subtle text-left transition-all duration-300 hover:border-accent/60 hover:shadow-glow"
+            className="group relative block w-full overflow-hidden rounded-lg border border-border bg-bg-subtle text-left transition-[border-color,box-shadow] duration-200 hover:border-border-strong hover:shadow-card"
           >
             <img
               src={asset(item.src)}
@@ -61,11 +61,8 @@ export default function Gallery() {
               loading="lazy"
               className="block w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
             />
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-bg/95 via-bg/40 to-transparent p-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <div className="font-mono text-[10px] uppercase tracking-wider text-accent">
-                // gallery
-              </div>
-              <div className="mt-0.5 text-xs text-ink">
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <div className="text-xs font-medium text-white">
                 {item.caption ?? item.alt}
               </div>
             </div>
@@ -80,12 +77,12 @@ export default function Gallery() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4 backdrop-blur"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-ink/95 p-4"
             onClick={close}
           >
             <button
               onClick={close}
-              className="absolute right-4 top-4 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-bg/70 text-ink-muted backdrop-blur transition-colors hover:border-accent/60 hover:text-ink"
+              className="icon-btn-dark absolute right-4 top-4 z-10 h-10 w-10"
               aria-label="Close"
             >
               <X size={18} />
@@ -95,7 +92,7 @@ export default function Gallery() {
                 e.stopPropagation();
                 prev();
               }}
-              className="absolute left-4 top-1/2 z-10 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-bg/70 text-ink-muted backdrop-blur transition-colors hover:border-accent/60 hover:text-ink"
+              className="icon-btn-dark absolute left-4 top-1/2 z-10 h-11 w-11 -translate-y-1/2"
               aria-label="Previous"
             >
               <ChevronLeft size={20} />
@@ -105,7 +102,7 @@ export default function Gallery() {
                 e.stopPropagation();
                 next();
               }}
-              className="absolute right-4 top-1/2 z-10 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-bg/70 text-ink-muted backdrop-blur transition-colors hover:border-accent/60 hover:text-ink"
+              className="icon-btn-dark absolute right-4 top-1/2 z-10 h-11 w-11 -translate-y-1/2"
               aria-label="Next"
             >
               <ChevronRight size={20} />
@@ -123,12 +120,12 @@ export default function Gallery() {
               <img
                 src={asset(current.src)}
                 alt={current.alt}
-                className="max-h-[88vh] max-w-[92vw] rounded-xl object-contain"
+                className="max-h-[88vh] max-w-[92vw] rounded-lg object-contain"
               />
               {current.caption ? (
-                <div className="mt-3 text-center font-mono text-xs uppercase tracking-wider text-ink-muted">
+                <div className="mt-3 text-center text-sm text-white/80">
                   {current.caption}
-                  <span className="ml-2 text-ink-subtle">
+                  <span className="ml-2 text-white/50">
                     {(index ?? 0) + 1} / {gallery.length}
                   </span>
                 </div>

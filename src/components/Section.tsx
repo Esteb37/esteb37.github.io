@@ -6,6 +6,10 @@ type Props = {
   label: string;
   title: string;
   description?: string;
+  /** Extra content rendered under the title, beside `aside`. */
+  intro?: ReactNode;
+  /** Shown to the right of the title and intro on wide screens. */
+  aside?: ReactNode;
   children: ReactNode;
   className?: string;
 };
@@ -15,26 +19,40 @@ export default function Section({
   label,
   title,
   description,
+  intro,
+  aside,
   children,
   className = "",
 }: Props) {
   return (
     <section
       id={id}
-      className={`relative scroll-mt-24 py-20 sm:py-20 ${className}`}
+      className={`relative scroll-mt-16 py-16 sm:py-20 ${className}`}
     >
       <div className="container-page">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+        <div
+          className={
+            aside
+              ? "grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,24rem)] lg:gap-14"
+              : undefined
+          }
         >
-          <span className="section-label">{label}</span>
-          <h2 className="section-title">{title}</h2>
-          {description ? <p className="section-sub">{description}</p> : null}
-        </motion.div>
-        <div className="mt-10">{children}</div>
+          <div className="min-w-0">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            >
+              <span className="section-label">{label}</span>
+              <h2 className="section-title">{title}</h2>
+              {description ? <p className="section-sub">{description}</p> : null}
+            </motion.div>
+            {intro ? <div className="mt-10 sm:mt-12">{intro}</div> : null}
+          </div>
+          {aside}
+        </div>
+        <div className="mt-10 sm:mt-12">{children}</div>
       </div>
     </section>
   );

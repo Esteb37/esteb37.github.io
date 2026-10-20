@@ -93,7 +93,7 @@ export default function ProjectModal({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="fixed inset-0 z-50 flex items-end justify-center bg-black/75 p-0 backdrop-blur sm:items-center sm:p-6"
+          className="fixed inset-0 z-50 flex items-end justify-center bg-ink/40 p-0 backdrop-blur-sm sm:items-center sm:p-6"
           onClick={onClose}
         >
           {/* Prev / Next project arrows — visible on the sides */}
@@ -106,7 +106,7 @@ export default function ProjectModal({
                   onPrev();
                 }}
                 aria-label="Previous project"
-                className="absolute left-3 top-1/2 z-[51] hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-bg/70 text-ink-muted backdrop-blur transition-colors hover:border-accent/60 hover:text-ink sm:inline-flex md:left-6 md:h-14 md:w-14"
+                className="icon-btn absolute left-3 top-1/2 z-[51] hidden h-12 w-12 -translate-y-1/2 sm:inline-flex md:left-6 md:h-14 md:w-14"
               >
                 <ChevronLeft size={22} />
               </button>
@@ -117,7 +117,7 @@ export default function ProjectModal({
                   onNext();
                 }}
                 aria-label="Next project"
-                className="absolute right-3 top-1/2 z-[51] hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-bg/70 text-ink-muted backdrop-blur transition-colors hover:border-accent/60 hover:text-ink sm:inline-flex md:right-6 md:h-14 md:w-14"
+                className="icon-btn absolute right-3 top-1/2 z-[51] hidden h-12 w-12 -translate-y-1/2 sm:inline-flex md:right-6 md:h-14 md:w-14"
               >
                 <ChevronRight size={22} />
               </button>
@@ -130,12 +130,12 @@ export default function ProjectModal({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.98 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="relative max-h-[92vh] w-full max-w-4xl overflow-hidden rounded-t-3xl border border-border bg-bg-elevated sm:rounded-3xl"
+            className="relative max-h-[92vh] w-full max-w-4xl overflow-hidden rounded-t-2xl bg-bg-elevated shadow-2xl sm:rounded-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={onClose}
-              className="absolute right-4 top-4 z-10 inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-bg/80 text-ink-muted backdrop-blur transition-colors hover:border-accent/60 hover:text-ink"
+              className="icon-btn absolute right-4 top-4 z-10 h-9 w-9"
               aria-label="Close"
             >
               <X size={16} />
@@ -143,8 +143,8 @@ export default function ProjectModal({
 
             {/* Project counter pill */}
             {projects.length > 1 ? (
-              <div className="absolute left-4 top-4 z-10 inline-flex items-center gap-2 rounded-full border border-border bg-bg/80 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-ink-muted backdrop-blur">
-                <span className="text-accent">{(index ?? 0) + 1}</span>
+              <div className="absolute left-4 top-4 z-10 inline-flex items-center gap-1 rounded-full border border-border bg-bg-elevated/95 px-3 py-1 text-xs font-medium text-ink-muted shadow-sm">
+                <span className="text-ink">{(index ?? 0) + 1}</span>
                 <span className="text-ink-subtle">/ {projects.length}</span>
               </div>
             ) : null}
@@ -161,23 +161,23 @@ export default function ProjectModal({
                   alt={project.title}
                   className="h-full w-full cursor-zoom-in object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                 />
-                <div className="pointer-events-none absolute right-3 top-3 inline-flex items-center gap-1 rounded-full border border-border bg-bg/80 px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-ink-muted opacity-0 backdrop-blur transition-opacity group-hover:opacity-100">
-                  <ZoomIn size={11} /> click to zoom
+                <div className="pointer-events-none absolute bottom-3 right-3 inline-flex items-center gap-1 rounded-full bg-white/95 px-2.5 py-1 text-xs font-medium text-ink-muted opacity-0 shadow-sm transition-opacity group-hover:opacity-100">
+                  <ZoomIn size={12} /> Click to zoom
                 </div>
               </button>
 
               <div className="p-6 sm:p-8">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-bg">
+                  <span className="chip chip-accent">
                     {project.category}
                   </span>
                   <span className="chip">{project.period}</span>
                 </div>
 
-                <h3 className="mt-3 text-2xl font-semibold text-ink">
+                <h3 className="mt-3 text-2xl font-semibold leading-snug text-ink">
                   {project.title}
                 </h3>
-                <p className="text-sm text-ink-muted">{project.org}</p>
+                <p className="mt-1 text-sm text-ink-muted">{project.org}</p>
 
                 {project.links && project.links.length > 0 ? (
                   <div className="mt-4 flex flex-wrap gap-2">
@@ -189,8 +189,8 @@ export default function ProjectModal({
                         rel="noreferrer"
                         className={
                           idx === 0
-                            ? "inline-flex items-center gap-1.5 rounded-full bg-accent px-4 py-2 text-sm font-semibold text-bg shadow-sm transition-transform hover:scale-[1.03] hover:bg-accent-soft"
-                            : "inline-flex items-center gap-1.5 rounded-full border border-accent/50 bg-accent/10 px-4 py-2 text-sm font-medium text-accent transition-colors hover:bg-accent/20"
+                            ? "btn btn-primary"
+                            : "btn btn-tint"
                         }
                       >
                         {link.label} <ExternalLink size={13} />
@@ -205,13 +205,11 @@ export default function ProjectModal({
 
                 {project.highlights.length > 0 ? (
                   <div className="mt-6">
-                    <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-accent">
-                      // highlights
-                    </div>
+                    <h4 className="list-heading">Highlights</h4>
                     <ul className="mt-2 space-y-2 text-sm text-ink-muted">
                       {project.highlights.map((h) => (
-                        <li key={h} className="flex gap-2">
-                          <span className="mt-1.5 inline-block h-1.5 w-1.5 flex-none rounded-full bg-accent" />
+                        <li key={h} className="flex gap-2.5">
+                          <span className="bullet" />
                           <span>{h}</span>
                         </li>
                       ))}
@@ -221,9 +219,7 @@ export default function ProjectModal({
 
                 {project.gallery && project.gallery.length > 0 ? (
                   <div className="mt-6">
-                    <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-accent">
-                      // media
-                    </div>
+                    <h4 className="list-heading">Media</h4>
                     <div className="mt-3 grid gap-3 sm:grid-cols-2">
                       {project.gallery.map((g) => {
                         const i = images.indexOf(g);
@@ -232,7 +228,7 @@ export default function ProjectModal({
                             type="button"
                             key={g}
                             onClick={() => setImgIndex(i >= 0 ? i : 0)}
-                            className="group relative block overflow-hidden rounded-xl border border-border bg-bg-subtle text-left transition-colors hover:border-accent/60"
+                            className="group relative block overflow-hidden rounded-lg border border-border bg-bg-subtle text-left transition-colors hover:border-border-strong"
                             aria-label="Open image"
                           >
                             <img
@@ -241,8 +237,8 @@ export default function ProjectModal({
                               loading="lazy"
                               className="h-full w-full cursor-zoom-in object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                             />
-                            <div className="pointer-events-none absolute right-2 top-2 inline-flex items-center gap-1 rounded-full border border-border bg-bg/80 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-ink-muted opacity-0 backdrop-blur transition-opacity group-hover:opacity-100">
-                              <ZoomIn size={10} /> zoom
+                            <div className="pointer-events-none absolute bottom-2 right-2 inline-flex items-center gap-1 rounded-full bg-white/95 px-2 py-0.5 text-xs font-medium text-ink-muted opacity-0 shadow-sm transition-opacity group-hover:opacity-100">
+                              <ZoomIn size={11} /> Zoom
                             </div>
                           </button>
                         );
@@ -261,9 +257,7 @@ export default function ProjectModal({
 
                 {videos.length > 0 ? (
                   <div className="mt-8">
-                    <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-accent">
-                      // videos
-                    </div>
+                    <h4 className="list-heading">Videos</h4>
                     <div
                       className={`mt-3 grid gap-4 ${
                         videos.length > 1 ? "sm:grid-cols-2" : ""
@@ -273,7 +267,7 @@ export default function ProjectModal({
                         <div key={`${video.kind}-${video.src}`}>
                           <VideoEmbedView video={video} />
                           {video.title ? (
-                            <p className="mt-2 text-xs text-ink-subtle">
+                            <p className="mt-2 text-sm text-ink-subtle">
                               {video.title}
                             </p>
                           ) : null}
@@ -294,7 +288,7 @@ export default function ProjectModal({
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.2 }}
-                className="fixed inset-0 z-[60] flex items-center justify-center bg-black/90 p-4 backdrop-blur"
+                className="fixed inset-0 z-[60] flex items-center justify-center bg-ink/95 p-4"
                 onClick={(e) => {
                   e.stopPropagation();
                   closeImage();
@@ -305,7 +299,7 @@ export default function ProjectModal({
                     e.stopPropagation();
                     closeImage();
                   }}
-                  className="absolute right-4 top-4 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-bg/70 text-ink-muted backdrop-blur transition-colors hover:border-accent/60 hover:text-ink"
+                  className="icon-btn-dark absolute right-4 top-4 z-10 h-10 w-10"
                   aria-label="Close image"
                 >
                   <X size={18} />
@@ -317,7 +311,7 @@ export default function ProjectModal({
                         e.stopPropagation();
                         prevImage();
                       }}
-                      className="absolute left-4 top-1/2 z-10 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-bg/70 text-ink-muted backdrop-blur transition-colors hover:border-accent/60 hover:text-ink"
+                      className="icon-btn-dark absolute left-4 top-1/2 z-10 h-11 w-11 -translate-y-1/2"
                       aria-label="Previous image"
                     >
                       <ChevronLeft size={20} />
@@ -327,7 +321,7 @@ export default function ProjectModal({
                         e.stopPropagation();
                         nextImage();
                       }}
-                      className="absolute right-4 top-1/2 z-10 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-bg/70 text-ink-muted backdrop-blur transition-colors hover:border-accent/60 hover:text-ink"
+                      className="icon-btn-dark absolute right-4 top-1/2 z-10 h-11 w-11 -translate-y-1/2"
                       aria-label="Next image"
                     >
                       <ChevronRight size={20} />
@@ -347,11 +341,11 @@ export default function ProjectModal({
                   <img
                     src={asset(images[imgIndex])}
                     alt={project.title}
-                    className="max-h-[88vh] max-w-[92vw] rounded-xl object-contain"
+                    className="max-h-[88vh] max-w-[92vw] rounded-lg object-contain"
                   />
-                  <div className="mt-3 text-center font-mono text-xs uppercase tracking-wider text-ink-muted">
+                  <div className="mt-3 text-center text-sm text-white/80">
                     {project.title}
-                    <span className="ml-2 text-ink-subtle">
+                    <span className="ml-2 text-white/50">
                       {imgIndex + 1} / {images.length}
                     </span>
                   </div>

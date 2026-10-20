@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    color-scheme: dark;
+    color-scheme: light;
   }
 
   html {
@@ -13,8 +13,8 @@
 
   html,
   body {
-    background-color: #0a0a0b;
-    color: #e8e8ea;
+    background-color: #fafafa;
+    color: #18181b;
   }
 
   body {
@@ -29,23 +29,16 @@
       sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    background-image:
-      radial-gradient(
-        ellipse 80% 60% at 50% -10%,
-        rgba(167, 139, 250, 0.12),
-        transparent 60%
-      ),
-      radial-gradient(
-        ellipse 60% 40% at 90% 20%,
-        rgba(124, 58, 237, 0.06),
-        transparent 60%
-      );
-    background-attachment: fixed;
   }
 
   ::selection {
-    background: rgba(167, 139, 250, 0.3);
-    color: #e8e8ea;
+    background: rgba(124, 58, 237, 0.16);
+    color: #18181b;
+  }
+
+  :focus-visible {
+    outline: 2px solid #7c3aed;
+    outline-offset: 2px;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -67,35 +60,71 @@
   }
 
   .section-label {
-    @apply font-mono text-xs uppercase tracking-[0.18em] text-accent;
+    @apply text-sm font-semibold text-accent;
   }
 
   .section-title {
-    @apply mt-3 text-3xl font-semibold leading-tight text-ink sm:text-4xl;
+    @apply mt-2 text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl;
   }
 
   .section-sub {
-    @apply mt-3 max-w-2xl text-base text-ink-muted;
+    @apply mt-4 max-w-2xl text-base leading-relaxed text-ink-muted sm:text-lg;
   }
 
   .chip {
-    @apply inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-ink-muted;
+    @apply inline-flex items-center gap-1.5 rounded-full bg-bg-subtle px-2.5 py-1 text-xs font-medium text-ink-muted;
   }
 
   .chip-accent {
-    @apply border-accent/40 bg-accent/10 text-accent;
+    @apply bg-accent-soft text-accent-deep;
   }
 
   .surface {
-    @apply rounded-2xl border border-border bg-bg-elevated/80 backdrop-blur;
+    @apply rounded-xl border border-border bg-bg-elevated;
   }
 
   .surface-hover {
-    @apply transition-all duration-300 hover:border-accent/40 hover:shadow-glow;
+    @apply transition-[border-color,box-shadow] duration-200 hover:border-border-strong hover:shadow-card;
   }
 
   .link-accent {
-    @apply text-accent transition-colors hover:text-accent-soft;
+    @apply text-accent transition-colors hover:text-accent-deep;
+  }
+
+  .btn {
+    @apply inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium transition-colors;
+  }
+
+  .btn-sm {
+    @apply px-3 py-1.5 text-xs;
+  }
+
+  .btn-primary {
+    @apply bg-accent text-white hover:bg-accent-deep;
+  }
+
+  .btn-secondary {
+    @apply border border-border bg-bg-elevated text-ink hover:border-border-strong hover:bg-bg-subtle;
+  }
+
+  .btn-tint {
+    @apply bg-accent-soft text-accent-deep hover:bg-accent-muted;
+  }
+
+  .icon-btn {
+    @apply inline-flex items-center justify-center rounded-full border border-border bg-bg-elevated/95 text-ink-muted shadow-sm transition-colors hover:border-border-strong hover:text-ink;
+  }
+
+  .icon-btn-dark {
+    @apply inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 text-white/80 transition-colors hover:bg-white/20 hover:text-white;
+  }
+
+  .list-heading {
+    @apply text-sm font-semibold text-ink;
+  }
+
+  .bullet {
+    @apply mt-2 inline-block h-1 w-1 flex-none rounded-full bg-accent;
   }
 }
 

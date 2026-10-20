@@ -7,6 +7,8 @@ export const education: EducationItem[] = [
     period: "Sep 2024 – Aug 2026",
     location: "Zürich, Switzerland",
     highlights: [
+      "Focus: robot learning, embodied intelligence, perception, control and navigation",
+      "Thesis: Common Ground — tracking human–robot interaction through coarse force-plate sensing (GVLab, University of Tokyo)",
       "SECIHITI Scholarship for Postgraduate Studies in Science and Humanities (2025)",
     ],
   },
