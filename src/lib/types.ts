@@ -21,10 +21,27 @@ export type Profile = {
   aboutImage?: string;
 };
 
+export type Affiliation = {
+  name: string;
+  /** Silhouette on a transparent background; tinted with the accent color. */
+  logo: string;
+  /** Height relative to the other logos, to even out optical weight. */
+  scale?: number;
+};
+
 export type Pillar = {
   title: string;
   description: string;
   tag: string;
+};
+
+export type ExperienceRole = {
+  role: string;
+  location: string;
+  period: string;
+  bullets: string[];
+  links?: Link[];
+  tags?: string[];
 };
 
 export type ExperienceItem = {
@@ -37,6 +54,8 @@ export type ExperienceItem = {
   tags?: string[];
   current?: boolean;
   logo?: string;
+  /** Separate stints at the same org, shown inside one entry. */
+  roles?: ExperienceRole[];
 };
 
 export type Publication = {
@@ -72,7 +91,7 @@ export type VideoEmbed = {
 export type ProjectCategory =
   | "Robot Learning & Manipulation"
   | "Navigation & Perception"
-  | "Aerial Robotics & Control"
+  | "Planning & Control"
   | "ML Systems & Performance";
 
 export type Project = {
@@ -91,6 +110,8 @@ export type Project = {
   videos?: VideoEmbed[];
   links?: Link[];
   featured?: boolean;
+  /** Pins the project on the world map; matches a `Place.location`. */
+  location?: string;
 };
 
 export type EducationItem = {
@@ -109,4 +130,17 @@ export type SkillGroup = {
 export type LanguageItem = {
   language: string;
   level: string;
+};
+
+export type Place = {
+  /** Matches `location` on experience and education items. */
+  location: string;
+  city: string;
+  country: string;
+  /** ISO 3166-1 numeric code, as used by world-atlas. */
+  countryId: string;
+  /** [longitude, latitude] */
+  coords: [number, number];
+  /** Side of the pin the tag sits on. */
+  tag: "left" | "right" | "top" | "bottom";
 };

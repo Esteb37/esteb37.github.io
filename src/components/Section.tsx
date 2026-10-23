@@ -27,7 +27,7 @@ export default function Section({
   return (
     <section
       id={id}
-      className={`relative scroll-mt-16 py-16 sm:py-20 ${className}`}
+      className={`relative scroll-mt-16 py-10 sm:py-12 ${className}`}
     >
       <div className="container-page">
         <div
@@ -48,11 +48,11 @@ export default function Section({
               <h2 className="section-title">{title}</h2>
               {description ? <p className="section-sub">{description}</p> : null}
             </motion.div>
-            {intro ? <div className="mt-10 sm:mt-12">{intro}</div> : null}
+            {intro ? <div className="mt-8">{intro}</div> : null}
           </div>
           {aside}
         </div>
-        <div className="mt-10 sm:mt-12">{children}</div>
+        <div className="mt-8">{children}</div>
       </div>
     </section>
   );

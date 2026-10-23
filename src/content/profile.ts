@@ -1,4 +1,4 @@
-import type { Pillar, Profile } from "@/lib/types";
+import type { Affiliation, Pillar, Profile } from "@/lib/types";
 
 export const profile: Profile = {
   name: "Esteban Padilla Cerdio",
@@ -22,6 +22,15 @@ export const profile: Profile = {
   portrait: "hero-portrait.webp",
   aboutImage: "me-robot-2.jpg",
 };
+
+export const affiliations: Affiliation[] = [
+  { name: "Meta", logo: "logos/banner/meta.png", scale: 0.85 },
+  { name: "Computer Vision and Geometry Lab", logo: "logos/banner/cvg.png", scale: 1.15 },
+  { name: "ETH Zürich", logo: "logos/banner/eth.svg", scale: 0.8 },
+  { name: "University of Tokyo", logo: "logos/banner/utokyo.png" },
+  { name: "Tecnológico de Monterrey", logo: "logos/banner/tec.png", scale: 1.2 },
+  { name: "Soft Robotics Lab", logo: "logos/banner/srl.png", scale: 1.3 },
+];
 
 export const pillars: Pillar[] = [
   {

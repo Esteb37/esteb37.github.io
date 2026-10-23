@@ -1,0 +1,68 @@
+import type { Place } from "@/lib/types";
+
+export const places: Place[] = [
+  {
+    location: "Zürich, Switzerland",
+    city: "Zürich",
+    country: "Switzerland",
+    countryId: "756",
+    coords: [8.5417, 47.3769],
+    tag: "bottom",
+  },
+  {
+    location: "Ulm, Germany",
+    city: "Ulm",
+    country: "Germany",
+    countryId: "276",
+    coords: [9.9876, 48.4011],
+    tag: "right",
+  },
+  {
+    location: "Paris, France",
+    city: "Paris",
+    country: "France",
+    countryId: "250",
+    coords: [2.3522, 48.8566],
+    tag: "left",
+  },
+  {
+    location: "Tokyo, Japan",
+    city: "Tokyo",
+    country: "Japan",
+    countryId: "392",
+    coords: [139.6917, 35.6895],
+    tag: "left",
+  },
+  {
+    location: "New York, USA",
+    city: "New York",
+    country: "USA",
+    countryId: "840",
+    coords: [-74.006, 40.7128],
+    tag: "right",
+  },
+  {
+    location: "Seattle, USA",
+    city: "Seattle",
+    country: "USA",
+    countryId: "840",
+    coords: [-122.3321, 47.6062],
+    tag: "top",
+  },
+  {
+    location: "Menlo Park, CA, USA",
+    city: "Menlo Park",
+    country: "USA",
+    countryId: "840",
+    coords: [-122.1817, 37.453],
+    tag: "left",
+  },
+  {
+    location: "Querétaro, Mexico",
+    city: "Querétaro",
+    country: "Mexico",
+    countryId: "484",
+    coords: [-100.3899, 20.5888],
+    tag: "left",
+  },
+];

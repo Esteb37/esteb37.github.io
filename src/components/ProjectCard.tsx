@@ -27,6 +27,7 @@ export default function ProjectCard({ project, onOpen }: Props) {
           loading="lazy"
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
         />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 from-10% via-black/55 via-50% to-transparent to-80%" />
         {project.featured || hasVideo ? (
           <div className="absolute left-3 top-3 flex flex-wrap items-center gap-1.5">
             {project.featured ? (
@@ -41,43 +42,24 @@ export default function ProjectCard({ project, onOpen }: Props) {
             ) : null}
           </div>
         ) : null}
-      </div>
-      <div className="flex flex-1 flex-col gap-3 p-4 sm:p-5">
-        <div>
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-0.5 text-xs font-medium">
-            <span className="text-accent">{project.category}</span>
-            <span className="text-ink-subtle">{project.period}</span>
-          </div>
-          <h3 className="mt-1.5 text-base font-semibold leading-snug text-ink sm:text-lg">
+        <span className="absolute right-3 top-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/95 text-accent opacity-100 shadow-sm transition-opacity sm:opacity-0 sm:group-hover:opacity-100">
+          <ArrowUpRight size={16} />
+        </span>
+        <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+          <h3 className="text-base font-semibold leading-snug text-white [text-shadow:0_1px_3px_rgb(0_0_0/0.6)] sm:text-lg">
             {project.title}
           </h3>
-          <p className="mt-1.5 hidden text-sm leading-relaxed text-ink-muted sm:block">
-            {project.subtitle}
+          <p className="mt-0.5 text-xs font-medium text-white/85 [text-shadow:0_1px_2px_rgb(0_0_0/0.6)]">
+            {project.period}
           </p>
         </div>
-        <div className="mt-auto flex flex-wrap gap-1.5">
-          <span className="chip sm:hidden">
-            {project.tags[0]}
-          </span>
-          {project.tags.length > 1 ? (
-            <span className="chip sm:hidden">+{project.tags.length - 1}</span>
-          ) : null}
-          <span className="hidden sm:contents">
-            {project.tags.slice(0, 4).map((tag) => (
-              <span key={tag} className="chip">
-                {tag}
-              </span>
-            ))}
-            {project.tags.length > 4 ? (
-              <span className="chip">+{project.tags.length - 4}</span>
-            ) : null}
-          </span>
-        </div>
-        <div className="flex items-center justify-between gap-2 border-t border-border pt-3 text-xs sm:text-sm">
-          <span className="truncate text-ink-subtle">{project.org}</span>
-          <span className="inline-flex flex-none items-center gap-1 font-medium text-accent opacity-100 transition-opacity sm:opacity-0 sm:group-hover:opacity-100">
-            Open <ArrowUpRight size={14} />
-          </span>
+      </div>
+      <div className="flex flex-1 flex-col gap-3 p-4">
+        <span className="text-xs font-medium text-accent">{project.category}</span>
+        <div className="-mt-1.5 hidden sm:block">
+          <p className="line-clamp-4 text-sm leading-relaxed text-ink-muted">
+            {project.subtitle}
+          </p>
         </div>
       </div>
     </motion.button>

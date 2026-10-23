@@ -54,12 +54,15 @@ export default function Projects() {
     return () => window.removeEventListener("resize", updateScrollState);
   }, [updateScrollState]);
 
-  // Arrows advance two cards at a time.
+  // Arrows advance two columns at a time.
   const scrollByPage = (dir: 1 | -1) => {
     const el = trackRef.current;
     if (!el) return;
-    const [first, second] = Array.from(el.children as HTMLCollectionOf<HTMLElement>);
-    const step = first && second ? second.offsetLeft - first.offsetLeft : el.clientWidth;
+    const slides = Array.from(el.children as HTMLCollectionOf<HTMLElement>);
+    const first = slides[0];
+    // Cards stack two per column, so measure to the first card in the next column.
+    const next = slides.find((s) => first && s.offsetLeft > first.offsetLeft);
+    const step = first && next ? next.offsetLeft - first.offsetLeft : el.clientWidth;
     el.scrollBy({ left: dir * step * 2, behavior: "smooth" });
   };
 
@@ -140,12 +143,12 @@ export default function Projects() {
         <div
           ref={trackRef}
           onScroll={updateScrollState}
-          className="no-scrollbar relative -mx-5 flex snap-x snap-mandatory scroll-px-5 gap-5 overflow-x-auto px-5 pb-2 sm:mx-0 sm:scroll-px-0 sm:px-0"
+          className="no-scrollbar relative -mx-5 grid snap-x snap-mandatory scroll-px-5 auto-cols-[75%] grid-flow-col grid-rows-2 gap-5 overflow-x-auto px-5 pb-2 sm:mx-0 sm:scroll-px-0 sm:auto-cols-[40%] sm:px-0 lg:auto-cols-[27%]"
         >
           {filtered.map((p) => (
             <div
               key={p.id}
-              className="flex w-[75%] flex-none snap-start sm:w-[40%] lg:w-[27%]"
+              className="flex snap-start"
               onClickCapture={(e) => {
                 if (revealSlide(e.currentTarget)) {
                   e.stopPropagation();

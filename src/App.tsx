@@ -9,6 +9,7 @@ import Projects from "./components/Projects";
 import Research from "./components/Research";
 // import RSS2026Featured from "./components/RSS2026Featured";
 import Skills from "./components/Skills";
+import WorldMap from "./components/WorldMap";
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
         <Research />
         <Projects />
         <Education />
+        <WorldMap />
         <Skills />
         <Contact />
       </main>

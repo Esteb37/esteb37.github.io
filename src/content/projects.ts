@@ -3,7 +3,7 @@ import type { Project, ProjectCategory } from "@/lib/types";
 export const projectCategories: ProjectCategory[] = [
   "Robot Learning & Manipulation",
   "Navigation & Perception",
-  "Aerial Robotics & Control",
+  "Planning & Control",
   "ML Systems & Performance",
 ];
 
@@ -79,7 +79,7 @@ export const projects: Project[] = [
   {
     id: "rapunzel-hand",
     sortDate: "2025-02",
-    title: "RAPUNZEL — Tendon-Driven Anthropomorphic Hand",
+    title: "Tendon-Driven Anthropomorphic Hand",
     subtitle:
       "17-DoF tendon-driven hand integrated with a Franka Panda arm, taught by demonstration.",
     category: "Robot Learning & Manipulation",
@@ -164,6 +164,7 @@ export const projects: Project[] = [
     category: "Robot Learning & Manipulation",
     period: "Paris · April 2025",
     org: "Mistral AI Physical AI & Robotics Hackathon",
+    location: "Paris, France",
     summary:
       "At the Mistral AI Robotics Summit & Hackathon in Paris (April 2025), our team developed a generalized vision–language–action pipeline using NVIDIA GR00T in 48 hours, running on Hugging Face's LeRobot arms and powered by Mistral AI models.",
     highlights: [
@@ -296,14 +297,49 @@ export const projects: Project[] = [
     ],
   },
 
-  // === Aerial Robotics & Control ===
+  // === Planning & Control ===
+  {
+    id: "tecdroid-frc",
+    sortDate: "2020-02",
+    title: "TecDroid — FIRST Robotics Competition Team 3354",
+    subtitle:
+      "Led programming and electronics for PrepaTec Querétaro's FRC team across three seasons, including a trip to the 2019 World Championship in Houston.",
+    category: "Planning & Control",
+    period: "Querétaro · 2018 – 2020",
+    org: "FRC Team 3354 TecDroid — PrepaTec Querétaro",
+    location: "Querétaro, Mexico",
+    summary:
+      "As Programming and Electronics Leader of TecDroid, I was responsible for the robot's control software and electrical systems in the FIRST Robotics Competition, where high-school teams build a 50 kg robot in six weeks to play a new game each season. Over 2018 – 2020 the team competed in five events with a 39-31 official record, won four regional awards, and qualified for the 2019 FIRST Championship in Houston, where we competed in the Newton Division. In 2019 I received the FIRST Dean's List Finalist Award at the Mexico City Regional.",
+    highlights: [
+      "FIRST Dean's List Finalist Award — Regional de la Ciudad de México 2019.",
+      "Regional Chairman's Award at Mexico City 2019, qualifying the team for the FIRST Championship (Newton Division, Houston).",
+      "Innovation in Control Award (Rockwell Automation) at the Monterrey Regional in 2018 and 2020.",
+      "Excellence in Engineering Award (Delphi) at the Laguna Regional 2018.",
+      "Reached the playoffs at every regional: Alliance 3 captain in Monterrey 2018, 1st pick of Alliance 5 in Laguna 2018, Alliance 5 captain and semifinalist in Mexico City 2019, and 1st pick of Alliance 3 and semifinalist in Monterrey 2020.",
+    ],
+    tags: [
+      "FRC",
+      "Robot Programming",
+      "Electronics",
+      "Control",
+      "Team Leadership",
+    ],
+    cover: "tecdroid-robot.webp",
+    gallery: ["tecdroid-chairmans-2019.webp", "tecdroid-pit.webp"],
+    links: [
+      {
+        label: "The Blue Alliance",
+        href: "https://www.thebluealliance.com/team/3354",
+      },
+    ],
+  },
   {
     id: "atic",
     sortDate: "2025-05",
     title: "Distributed MPC for Modular Aerial Robots",
     subtitle:
       "ADMM-based decentralized MPC for the DRAGON articulated aerial platform.",
-    category: "Aerial Robotics & Control",
+    category: "Planning & Control",
     period: "ETH Zürich · 2025",
     org: "ETH Zürich",
     summary:

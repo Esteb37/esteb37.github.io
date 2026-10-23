@@ -6,13 +6,13 @@ import {
   Mail,
   MapPin,
 } from "lucide-react";
-import { profile } from "@/content/profile";
+import { affiliations, profile } from "@/content/profile";
 import { asset } from "@/lib/asset";
 
 export default function Hero() {
   return (
     <section id="portfolio" className="relative pt-28 sm:pt-36">
-      <div className="container-page grid items-center gap-12 pb-16 sm:pb-24 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
+      <div className="container-page grid items-center gap-12 pb-8 sm:pb-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -99,6 +99,31 @@ export default function Hero() {
       </div>
 
       <div className="container-page">
+        <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 border-t border-border py-8 [--logo-h:1.75rem] sm:justify-between sm:[--logo-h:2rem]">
+          {affiliations.map((item) => {
+            const mask = `url("${asset(item.logo)}") center / contain no-repeat`;
+            return (
+              // The hidden img sizes the box; the mask paints the logo in the accent color.
+              <span
+                key={item.name}
+                role="img"
+                aria-label={item.name}
+                title={item.name}
+                className="inline-block bg-accent opacity-80 transition-opacity hover:opacity-100"
+                style={{ mask, WebkitMask: mask }}
+              >
+                <img
+                  src={asset(item.logo)}
+                  alt=""
+                  aria-hidden
+                  loading="lazy"
+                  className="w-auto opacity-0"
+                  style={{ height: `calc(var(--logo-h) * ${item.scale ?? 1})` }}
+                />
+              </span>
+            );
+          })}
+        </div>
         <div className="flex flex-wrap items-center gap-x-8 gap-y-2 border-t border-border py-6 text-sm text-ink-subtle">
           <span>Robot Learning</span>
           <span>Autonomous Navigation</span>

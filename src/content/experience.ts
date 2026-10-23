@@ -2,7 +2,7 @@ import type { ExperienceItem } from "@/lib/types";
 
 export const experience: ExperienceItem[] = [
   {
-    role: "Robotics Research Assistant",
+    role: "Robotics Research Assistant — Semantic Navigation",
     org: "Computer Vision and Geometry Lab, ETH Zürich",
     location: "Zürich, Switzerland",
     period: "Sep 2026 – Present",
@@ -21,7 +21,7 @@ export const experience: ExperienceItem[] = [
     ],
   },
   {
-    role: "Research Intern — MSc Thesis",
+    role: "Research Intern — Multi-Agent Localization",
     org: "GVLab — University of Tokyo",
     location: "Tokyo, Japan",
     period: "Feb – Aug 2026",
@@ -46,7 +46,7 @@ export const experience: ExperienceItem[] = [
     ],
   },
   {
-    role: "Teaching Assistant — Real World Robotics",
+    role: "Teaching Assistant — Dexterous Manipulation",
     org: "Soft Robotics Laboratory, ETH Zürich",
     location: "Zürich, Switzerland",
     period: "Sep 2025 – Feb 2026",
@@ -70,57 +70,79 @@ export const experience: ExperienceItem[] = [
     ],
   },
   {
-    role: "Software Engineering Intern — PyTorch / ExecuTorch",
+    role: "Software Engineering Intern",
     org: "Meta Platforms",
-    location: "New York, USA",
-    period: "Jun – Aug 2024",
+    location: "USA",
+    period: "Jun 2021 – Aug 2024",
     logo: "logos/meta.png",
-    bullets: [
-      "Built open-source Vulkan GPU characterization tooling for PyTorch and ExecuTorch.",
-      "Optimized edge matrix multiplication through buffer and memory management, loop unrolling and 4-bit quantization, reducing representative inference runtime by approximately 70%.",
-    ],
-    links: [
+    bullets: [],
+    roles: [
       {
-        label: "GPUInfo Repository",
-        href: "https://github.com/pytorch/executorch/tree/main/backends/vulkan/tools/gpuinfo",
+        role: "Software Engineering Intern — PyTorch / ExecuTorch",
+        location: "New York, USA",
+        period: "Jun – Aug 2024",
+        bullets: [
+          "Built open-source Vulkan GPU characterization tooling for PyTorch and ExecuTorch.",
+          "Optimized edge matrix multiplication through buffer and memory management, loop unrolling and 4-bit quantization, reducing representative inference runtime by approximately 70%.",
+        ],
+        links: [
+          {
+            label: "GPUInfo Repository",
+            href: "https://github.com/pytorch/executorch/tree/main/backends/vulkan/tools/gpuinfo",
+          },
+        ],
+        tags: ["PyTorch", "On-Device ML", "Vulkan", "Quantization"],
+      },
+      {
+        role: "Software Engineering Intern — Core AI",
+        location: "Seattle, USA",
+        period: "Jun – Aug 2023",
+        bullets: [
+          "Re-engineered a deep-learning image and video enhancement pipeline, previously deployed on a virtual GPU, for C++ CPU execution on servers and AR glasses.",
+          "Reduced runtime by 99.66% while preserving visual quality.",
+        ],
+        tags: ["C++", "ML Inference", "Computer Vision"],
+      },
+      {
+        role: "Software Engineering Intern — WhatsApp Infrastructure",
+        location: "Menlo Park, CA, USA",
+        period: "May – Jul 2022",
+        bullets: [
+          "Built centralized crash-report processing in Hack with logging, symbolication, categorization and asynchronous server communication.",
+          "Reduced client crash-log upload wait time by approximately 95%.",
+        ],
+        tags: ["Hack", "Distributed Systems", "Infrastructure"],
+      },
+      {
+        role: "Software Development Intern — Meta University",
+        location: "Remote",
+        period: "Jun – Aug 2021",
+        bullets: [
+          "Completed a three-week Android development bootcamp in Java, followed by a five-week project phase.",
+          "Developed a native app that recommends open-source projects to developers based on their interests, using an interaction-based recommendation algorithm.",
+        ],
+        tags: ["Android", "Java", "Recommender Systems"],
       },
     ],
-    tags: ["PyTorch", "On-Device ML", "Vulkan", "Quantization"],
   },
   {
-    role: "Software Engineering Intern — Core AI",
-    org: "Meta Platforms",
-    location: "Seattle, USA",
-    period: "Jun – Aug 2023",
-    logo: "logos/meta.png",
+    role: "Founder & Full-Stack Developer",
+    org: "Paradigm",
+    location: "Querétaro, Mexico",
+    period: "2018 – 2021",
+    logo: "logos/paradigm.png",
     bullets: [
-      "Re-engineered a deep-learning image and video enhancement pipeline, previously deployed on a virtual GPU, for C++ CPU execution on servers and AR glasses.",
-      "Reduced runtime by 99.66% while preserving visual quality.",
+      "Independently developed custom software for businesses, including mobile applications, internal digital tools and web-based interfaces.",
+      "Reached a user base of 1,300+ members across nine services, from real-time tracking systems for laboratories to appointment apps for customers.",
     ],
-    tags: ["C++", "ML Inference", "Computer Vision"],
-  },
-  {
-    role: "Software Engineering Intern — WhatsApp Infrastructure",
-    org: "Meta Platforms",
-    location: "Menlo Park, CA, USA",
-    period: "May – Jul 2022",
-    logo: "logos/meta.png",
-    bullets: [
-      "Built centralized crash-report processing in Hack with logging, symbolication, categorization and asynchronous server communication.",
-      "Reduced client crash-log upload wait time by approximately 95%.",
+    tags: [
+      "TypeScript",
+      "HTML/CSS",
+      "Cordova",
+      "Android",
+      "UI/UX",
+      "Full-Stack",
+      "Databases",
     ],
-    tags: ["Hack", "Distributed Systems", "Infrastructure"],
-  },
-  {
-    role: "Software Development Intern — Meta University",
-    org: "Meta Platforms",
-    location: "Remote",
-    period: "Jun – Aug 2021",
-    logo: "logos/meta.png",
-    bullets: [
-      "Completed a three-week Android development bootcamp in Java, followed by a five-week project phase.",
-      "Developed a native app that recommends open-source projects to developers based on their interests, using an interaction-based recommendation algorithm.",
-    ],
-    tags: ["Android", "Java", "Recommender Systems"],
   },
 ];
