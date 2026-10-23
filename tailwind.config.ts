@@ -38,6 +38,15 @@ const config: Config = {
           "sans-serif",
         ],
       },
+      keyframes: {
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
+        },
+      },
+      animation: {
+        marquee: "marquee 90s linear infinite",
+      },
       boxShadow: {
         card: "0 1px 2px rgba(24, 24, 27, 0.04), 0 12px 32px -16px rgba(24, 24, 27, 0.16)",
       },

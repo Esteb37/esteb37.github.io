@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
   ArrowDownRight,
   Github,
@@ -6,8 +6,64 @@ import {
   Mail,
   MapPin,
 } from "lucide-react";
+import { useEffect, useState } from "react";
 import { affiliations, profile } from "@/content/profile";
 import { asset } from "@/lib/asset";
+
+const VERBS = [
+  "act",
+  "interact",
+  "navigate",
+  "explore",
+  "learn",
+  "perceive",
+  "manipulate",
+  "adapt",
+];
+
+function RotatingVerb() {
+  const [index, setIndex] = useState(0);
+  const reduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    if (reduceMotion) return;
+    const id = window.setInterval(
+      () => setIndex((i) => (i + 1) % VERBS.length),
+      2200,
+    );
+    return () => window.clearInterval(id);
+  }, [reduceMotion]);
+
+  return (
+    <>
+      <span className="sr-only">{VERBS.join(", ")}.</span>
+      {/* Clips the slide; the period rides along so nothing jumps after the word. */}
+      <span aria-hidden className="inline-block overflow-hidden align-bottom">
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.span
+            key={VERBS[index]}
+            initial={{ y: "100%", opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: "-100%", opacity: 0 }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
+            className="inline-block"
+          >
+            <span className="font-medium text-accent">{VERBS[index]}</span>.
+          </motion.span>
+        </AnimatePresence>
+      </span>
+    </>
+  );
+}
+
+// Each half of the track repeats the logos twice so it still fills ultra-wide screens.
+const BANNER = [...affiliations, ...affiliations];
+
+// "accent" paints every logo in the site purple; "original" shows the brand colors.
+const LOGO_STYLE: "accent" | "original" = "original";
+
+const originalLogo = (logo: string) =>
+  logo.replace("logos/banner/", "logos/banner/color/");
 
 export default function Hero() {
   return (
@@ -27,10 +83,7 @@ export default function Hero() {
             {profile.name}
           </h1>
           <h2 className="mt-4 text-2xl font-normal leading-snug tracking-tight text-ink-muted sm:text-3xl">
-            Building the intelligence stack for robots that{" "}
-            <span className="font-medium text-accent">act</span>,{" "}
-            <span className="font-medium text-accent">interact</span> and{" "}
-            <span className="font-medium text-accent">explore</span>.
+            Building the intelligence stack for robots that <RotatingVerb />
           </h2>
 
           <p className="mt-6 text-base leading-relaxed text-ink-muted sm:text-lg">
@@ -98,33 +151,61 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      <div className="container-page">
-        <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 border-t border-border py-8 [--logo-h:1.75rem] sm:justify-between sm:[--logo-h:2rem]">
-          {affiliations.map((item) => {
-            const mask = `url("${asset(item.logo)}") center / contain no-repeat`;
-            return (
-              // The hidden img sizes the box; the mask paints the logo in the accent color.
-              <span
-                key={item.name}
-                role="img"
-                aria-label={item.name}
-                title={item.name}
-                className="inline-block bg-accent opacity-80 transition-opacity hover:opacity-100"
-                style={{ mask, WebkitMask: mask }}
-              >
-                <img
-                  src={asset(item.logo)}
-                  alt=""
-                  aria-hidden
-                  loading="lazy"
-                  className="w-auto opacity-0"
-                  style={{ height: `calc(var(--logo-h) * ${item.scale ?? 1})` }}
-                />
-              </span>
-            );
-          })}
+      {/* Two copies of the logos scroll by half their width, so the loop is seamless. */}
+      <div className="border-y border-border">
+        <div className="overflow-hidden py-8 [--logo-h:1.75rem] [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)] sm:[--logo-h:2rem]">
+          <div className="flex w-max animate-marquee items-center">
+            {[...BANNER, ...BANNER].map((item, idx) => {
+              const copy = idx >= affiliations.length;
+              const height = `calc(var(--logo-h) * ${item.scale ?? 1})`;
+              const label = {
+                role: copy ? undefined : "img",
+                "aria-label": copy ? undefined : item.name,
+                "aria-hidden": copy || undefined,
+                title: item.name,
+              };
+              if (LOGO_STYLE === "original") {
+                return (
+                  <span
+                    key={`${item.name}-${idx}`}
+                    {...label}
+                    className="mx-7 inline-block flex-none sm:mx-9"
+                  >
+                    <img
+                      src={asset(originalLogo(item.logo))}
+                      alt=""
+                      aria-hidden
+                      className="w-auto max-w-none"
+                      style={{ height }}
+                    />
+                  </span>
+                );
+              }
+              const mask = `url("${asset(item.logo)}") center / contain no-repeat`;
+              return (
+                // The hidden img sizes the box; the mask paints the logo in the accent color.
+                <span
+                  key={`${item.name}-${idx}`}
+                  {...label}
+                  className="mx-7 inline-block flex-none bg-accent opacity-80 transition-opacity hover:opacity-100 sm:mx-9"
+                  style={{ mask, WebkitMask: mask }}
+                >
+                  <img
+                    src={asset(item.logo)}
+                    alt=""
+                    aria-hidden
+                    className="w-auto max-w-none opacity-0"
+                    style={{ height }}
+                  />
+                </span>
+              );
+            })}
+          </div>
         </div>
-        <div className="flex flex-wrap items-center gap-x-8 gap-y-2 border-t border-border py-6 text-sm text-ink-subtle">
+      </div>
+
+      <div className="container-page">
+        <div className="flex flex-wrap items-center gap-x-8 gap-y-2 py-6 text-sm text-ink-subtle">
           <span>Robot Learning</span>
           <span>Autonomous Navigation</span>
           <span>Manipulation</span>
