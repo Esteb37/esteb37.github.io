@@ -4,7 +4,8 @@
 
 @layer base {
   :root {
-    color-scheme: light;
+    /* "only" opts out of Chrome's auto dark mode, which recolors the logos. */
+    color-scheme: only light;
   }
 
   html {

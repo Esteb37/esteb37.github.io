@@ -56,8 +56,20 @@ function RotatingVerb() {
   );
 }
 
-// Each half of the track repeats the logos twice so it still fills ultra-wide screens.
-const BANNER = [...affiliations, ...affiliations];
+// On phones the banner opens on Meta; wider screens keep the lead-in logos.
+const PHONE_START = affiliations.findIndex((a) => a.name === "Meta");
+
+function useIsPhone() {
+  const query = "(max-width: 639px)";
+  const [isPhone, setIsPhone] = useState(() => window.matchMedia(query).matches);
+  useEffect(() => {
+    const mql = window.matchMedia(query);
+    const onChange = () => setIsPhone(mql.matches);
+    mql.addEventListener("change", onChange);
+    return () => mql.removeEventListener("change", onChange);
+  }, []);
+  return isPhone;
+}
 
 // "accent" paints every logo in the site purple; "original" shows the brand colors.
 const LOGO_STYLE: "accent" | "original" = "original";
@@ -66,6 +78,13 @@ const originalLogo = (logo: string) =>
   logo.replace("logos/banner/", "logos/banner/color/");
 
 export default function Hero() {
+  const isPhone = useIsPhone();
+  const start = isPhone && PHONE_START > 0 ? PHONE_START : 0;
+  const logos = [...affiliations.slice(start), ...affiliations.slice(0, start)];
+  // Each half of the track repeats the logos twice so it still fills ultra-wide screens.
+  // Phones skip the repeat to keep the animated layer small for the GPU.
+  const banner = isPhone ? logos : [...logos, ...logos];
+
   return (
     <section id="portfolio" className="relative pt-28 sm:pt-36">
       <div className="container-page grid items-center gap-12 pb-8 sm:pb-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
@@ -152,10 +171,14 @@ export default function Hero() {
       </div>
 
       {/* Two copies of the logos scroll by half their width, so the loop is seamless. */}
-      <div className="border-y border-border">
-        <div className="overflow-hidden py-8 [--logo-h:1.75rem] [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)] sm:[--logo-h:2rem]">
-          <div className="flex w-max animate-marquee items-center">
-            {[...BANNER, ...BANNER].map((item, idx) => {
+      <div className="relative border-y border-border">
+        <div className="overflow-hidden py-8 [--logo-h:1.75rem] sm:[--logo-h:2rem]">
+          <div
+            className="flex w-max animate-marquee items-center will-change-transform"
+            // Half the track on phones, so half the duration keeps the same speed.
+            style={isPhone ? { animationDuration: "45s" } : undefined}
+          >
+            {[...banner, ...banner].map((item, idx) => {
               const copy = idx >= affiliations.length;
               const height = `calc(var(--logo-h) * ${item.scale ?? 1})`;
               const label = {
@@ -202,6 +225,15 @@ export default function Hero() {
             })}
           </div>
         </div>
+        {/* Overlays instead of mask-image: WebKit drops masked content with animated children. */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-bg to-transparent sm:w-24"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-bg to-transparent sm:w-24"
+        />
       </div>
 
       <div className="container-page">
