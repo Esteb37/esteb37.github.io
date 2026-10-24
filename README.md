@@ -23,6 +23,7 @@ npm run build    # production build → dist/
 npm run preview  # serve the production build locally
 ```
 
+
 ## Editing the content
 
 All content is in plain TypeScript files (typed) so you get autocomplete and refactor support:
