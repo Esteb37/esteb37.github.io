@@ -8,7 +8,7 @@ const links = [
   { id: "research", label: "Research" },
   { id: "projects", label: "Projects" },
   { id: "education", label: "Education" },
-  { id: "map", label: "Map" },
+  // { id: "map", label: "Map" },
   { id: "contact", label: "Contact" },
 ];
 
